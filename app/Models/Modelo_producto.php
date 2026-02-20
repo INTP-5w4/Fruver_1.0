@@ -7,5 +7,13 @@ class Modelo_producto extends Model{
     protected $table      = 'producto';
     // Uncomment below if you want add primary key
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nombre','unidad_medida','descripcion']
+    protected $allowedFields = ['nombre','unidad_medida','descripcion'];
+
+    public function borrar($id){
+        if($this->delete($id))
+            return true;
+            else
+                return false;
+        
+    }
 }

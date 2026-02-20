@@ -27,7 +27,7 @@
         <h1>FRUVER</h1>
         <h2>Frutas y verduras de Veracruz</h2>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi dolore ipsa repudiandae voluptatum reprehenderit saepe accusantium assumenda ratione incidunt esse! In nostrum ut inventore quis, molestias sequi consequuntur eos beatae.</p>
-        <a href="#"><button>Ver productos</button></a>
+        <a href="<?= base_url('lista_producto')?>"><button>Ver productos</button></a>
         <div><i class="fa-solid fa-truck-arrow-right"></i> <p>Envio rapido</p></div>
         <div><i class="fa-regular fa-clock"></i><p>Gran disponibilidad</p></div>
         <div><i class="fa-solid fa-leaf"></i><p>100% Natural</p></div>

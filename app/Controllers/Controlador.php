@@ -14,18 +14,34 @@ class Controlador extends BaseController
     public function guardar_producto(){
     $m_producto = new Modelo_producto();
     $datos_de_producto=[
-            'nombre'=>$this->request->getpost('nom'),
-            'unidad_medida'=>$this->request->getpost('u_med'),
-            'descripcion'=>$this->request->getpost('desc')
+            'nombre'=>$this->request->getPost('nom'),
+            'unidad_medida'=>$this->request->getPost('u_med'),
+            'descripcion'=>$this->request->getPost('desc')
         ];
         if(empty($datos_de_producto['nombre'])||
         empty($datos_de_producto['unidad_medida'])||
-        empty($datos_de_producto['desc'])){
+        empty($datos_de_producto['descripcion'])){
             return view('crea_producto');
         }else{
         $m_producto->insert($datos_de_producto);
         }
     
+    }
+    public function lista_producto(){
+        $m_producto= new Modelo_producto();
+        $n=$m_producto->findAll();
+        $datos_de_producto=['productos'=>$n];
+        return view('lista_producto', $datos_de_producto);
+    }
+     public function eliminar_datos($id=null){
+        if ($id!=null)
+        $m_producto= new Modelo_producto();
+        $n=$m_producto->findAll();
+        $datos_de_producto=['productos'=>$n];
+        if ($m_producto->borrar($id)==true)
+            return view('lista_producto');
+        else
+            echo 'Algo ha fallado';
     }
      
 }
