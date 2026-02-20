@@ -17,6 +17,8 @@
                 <a href="#">Sobre nosotros</a>
                 <a href="#">Productos</a>
                 <a href="#">Contacto</a>
+                <a href="<?= base_url('crea_producto') ?>">Añadir productos</a>
+
             </nav>       
         </div>
             
