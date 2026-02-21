@@ -8,6 +8,10 @@ class Modelo_producto extends Model{
     // Uncomment below if you want add primary key
     protected $primaryKey = 'id';
     protected $allowedFields = ['nombre','unidad_medida','descripcion'];
+    
+    public function getproducto($id){
+        return $this->where('id',$id)-> first();
+    }
 
     public function borrar($id){
         if($this->delete($id))

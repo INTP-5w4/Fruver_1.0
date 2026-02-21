@@ -44,4 +44,27 @@ class Controlador extends BaseController
             echo 'Algo ha fallado';
     }
      
+    public function recupera($id=null){
+        if($id!=null){
+            $m_producto= new Modelo_producto();
+            $datos['productos']=$m_producto->getproducto($id);
+        return view('modifica',$datos);
+        }
+    }
+
+    public function modificar(){
+        $id=$this->request->getPost('id');
+         $datos_de_producto=[
+            'nombre'=>$this->request->getPost('nom'),
+            'unidad_medida'=>$this->request->getPost('u_med'),
+            'descripcion'=>$this->request->getPost('desc'),
+         ];
+         $m_producto= new Modelo_producto();
+         if($m_producto->update($id,$datos_de_producto)){
+            //echo "Datos almacenados exitosamente";
+            return redirect()->to(base_url('lista_producto'));
+         }
+    }
+
+
 }
