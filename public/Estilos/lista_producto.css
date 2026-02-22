@@ -1,0 +1,40 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+body{
+    margin: 0;
+}
+
+table{
+    border: 1px solid gray;
+    border-radius: 7px;
+    border-spacing: 0;
+    box-shadow:  2px 2px 5px rgba(217, 219, 217, 0.767);
+    padding: 0px;
+    text-align: center;
+    min-width: 60%;
+    width: 70%;
+    font-family: 'Poppins';
+    
+
+
+}
+table thead{
+    background-color: rgba(0, 122, 10, 0.822);
+    color: antiquewhite;
+    font-weight: 480;
+    
+}
+table thead tr td{
+    border: none;
+    
+}
+table tr td a{
+    text-decoration: none;
+    color: black;
+}
+table tbody tr:hover{
+    background-color: rgb(226, 213, 197);
+
+}
+a:hover{
+color: rgba(0, 122, 10, 0.822);
+}
