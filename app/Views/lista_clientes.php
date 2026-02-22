@@ -8,6 +8,7 @@
 </head>
 <body>
     <div>
+        <a href="<?= base_url('crea_cliente')?>">Agregar cliente</a>
         <table class="table table-light">
             <thead class="thead-light">
                 <tr>

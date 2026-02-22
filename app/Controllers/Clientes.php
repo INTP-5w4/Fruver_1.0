@@ -11,4 +11,8 @@ public function lista_clientes(){
     return view('lista_clientes',$datos);
 }
 
+public function crea_cliente(){
+    return view('crea_cliente',$datos);
+}
+
 }
