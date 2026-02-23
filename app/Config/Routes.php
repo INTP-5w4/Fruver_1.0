@@ -14,3 +14,7 @@ $routes->get('pasaid/(:num)', 'Controlador::recupera/$1');
 $routes->post('nuevoform', 'Controlador::modificar');
 $routes->get('lista', 'Clientes::lista_clientes');
 $routes->get('crea_cliente', 'Clientes::crea_cliente');
+$routes->post('guardar_cliente', 'Clientes::guardar_cliente');
+$routes->get('borrarid/(:num)', 'Clientes::elimina_cliente/$1');
+$routes->get('pasoid/(:num)', 'Clientes::recupera_cliente/$1');
+$routes->post('edita_cliente', 'Clientes::edita_cliente');

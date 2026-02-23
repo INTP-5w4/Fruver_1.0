@@ -8,4 +8,8 @@ class Cliente_model extends Model{
     // Uncomment below if you want add primary key
     protected $primaryKey = 'id';
     protected $allowedFields = ['nombre','apellido','calle','colonia','numero','rfc','tipo_cliente','telefono','tipo_credito'];
+
+    public function getCliente($id){
+    return $this->where('id', $id)->first();
+}
 }
