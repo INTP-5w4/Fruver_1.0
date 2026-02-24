@@ -10,8 +10,14 @@
         <label for="nom">Nombre</label><br>
         <input type="text" name="nom" placeholder="Ej: Tomate Saladet"><br>
 
-        <label for="u_med">Unidad de medida</label><br>
-        <input type="text" name="u_med" placeholder="Ej: Tomate Saladet"><br>
+        <label for="u_med">Unidad de Medida:</label>
+            <select name="u_med" id="u_med" required>
+                 <option value="" Placeholder="Seleccione una opcion"></option>
+                    <?php foreach($unidades as $u): ?>
+                <option value="<?= $u['id']; ?>">
+                    <?= $u['nombre']; ?> </option>
+                    <?php endforeach; ?>
+            </select><br>
         
         <label for="desc">Descripción</label><br>
         <textarea name="desc" cols="20" rows="6" placeholder="Ej: Tomate Saladet es..."></textarea> <br>

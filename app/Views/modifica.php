@@ -13,7 +13,7 @@
         <input type="text" name="nom" value="<?= esc($productos['nombre'])?>"require><br>
 
         <label>Unidad de medida</label><br>
-        <input type="text" name="u_med" value="<?= esc($productos['unidad_medida'])?>"require><br>
+        <input type="text" name="u_med" value="<?= esc($productos['id_unidad_medida'])?>"require><br>
         
         <label>Descripcion</label><br>
         <textarea cols='16' rows='6' name="desc" value="<?= esc( $productos['descripcion'])?>" require></textarea><br>

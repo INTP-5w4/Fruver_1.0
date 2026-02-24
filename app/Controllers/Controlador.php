@@ -2,26 +2,31 @@
 
 namespace App\Controllers;
 use App\Models\Modelo_producto;
+use App\Models\Modelo_Unidad;
 class Controlador extends BaseController
 {
     public function index(): string
     {
         return view('main_page');
     }
-    public function crea_producto(){
-        return view('crea_producto');
-    }
+    public function crea_producto()
+{
+    $m_unidad = new Modelo_Unidad();
+    $datos['unidades'] = $m_unidad->findAll();
+    return view('crea_producto', $datos);
+}
     public function guardar_producto(){
     $m_producto = new Modelo_producto();
-    $datos_de_producto=[
-            'nombre'=>$this->request->getPost('nom'),
-            'unidad_medida'=>$this->request->getPost('u_med'),
-            'descripcion'=>$this->request->getPost('desc')
-        ];
-        if(empty($datos_de_producto['nombre'])||
-        empty($datos_de_producto['unidad_medida'])||
-        empty($datos_de_producto['descripcion'])){
-            return view('crea_producto');
+    $datos_de_producto = [
+        'nombre'           => $this->request->getPost('nom'),
+        'descripcion'      => $this->request->getPost('desc'),
+        'id_unidad_medida' => $this->request->getPost('u_med') 
+    ];
+    if (empty($datos_de_producto['nombre']) || 
+        empty($datos_de_producto['id_unidad_medida'])){
+        $m_unidad = new Modelo_Unidad();
+        $datos['unidades'] = $m_unidad->findAll();
+        return view('crea_producto', $datos);
         }else{
         $m_producto->insert($datos_de_producto);
         }
@@ -56,8 +61,8 @@ class Controlador extends BaseController
         $id=$this->request->getPost('id');
          $datos_de_producto=[
             'nombre'=>$this->request->getPost('nom'),
-            'unidad_medida'=>$this->request->getPost('u_med'),
             'descripcion'=>$this->request->getPost('desc'),
+            'id_unidad_medida'=>$this->request->getPost('u_med'),
          ];
          $m_producto= new Modelo_producto();
          if($m_producto->update($id,$datos_de_producto)){

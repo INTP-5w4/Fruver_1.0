@@ -23,7 +23,6 @@ header{
         position: fixed;
         width: 100%;
 }
-
 header .container{
     display: flex;
     justify-content: space-between;
@@ -34,18 +33,61 @@ header .container{
 nav{
     display: inline-block;
     margin-right: 10px;
+    align-items: center center;
 }
 nav a {
     text-decoration: none;
     color: rgb(0,0,0);
     padding: 0px 15px;
     align-items: center center;
-
 }
 nav a:hover {
     text-decoration: none;
     color: rgba(0, 122, 10, 0.822);
-    padding: 10px 15px;
+    padding: 0px 15px;
+}
+nav p{
+    text-decoration: none;
+    color: rgb(0,0,0);
+    padding: 0px 15px;
+    align-items: center center;
+    margin: 0;
+}
+nav p:hover{
+    text-decoration: none;
+    color: rgba(0, 122, 10, 0.822);
+    padding: 0px 15px;
+}
+.acciones{
+    position: relative;
+    display: inline-block;
+}
+.acciones ul{
+    position: absolute;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    list-style-type: none;
+    background-color: rgb(225, 225, 225);
+    padding: 4px;
+    min-width: 180px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease; /* Para que aparezca suave */
+    text-decoration: none;
+    left: 0;
+}
+.acciones:hover ul{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+.acciones ul li {
+    padding: 8px 0;
+}
+
+.acciones ul li a:hover {
+    color: rgba(0, 187, 16, 0.822);
 }
 .H_padre{
     display: flex;

@@ -17,10 +17,18 @@
                 <a href="#">Sobre nosotros</a>
                 <a href="#">Productos</a>
                 <a href="#">Contacto</a>
-                <a href="<?= base_url('crea_producto') ?>">Añadir productos</a>
-                <a href="<?= base_url('lista')?>">Clientes</a>
-                <a href="<?= base_url('lista_merma')?>">Merma</a>
-
+                <div class="acciones">
+                    <p>Acciones</p>
+                        <ul>
+                            <li><a href="<?= base_url('crea_producto') ?>">Añadir productos</a></li>
+                            <li><a href="<?= base_url('lista')?>">Clientes</a></li>
+                            <li><a href="<?= base_url('lista_merma')?>">Merma</a></li>
+                            <li><a href="<?= base_url('Crea_entradas')?>">Entradas</a></li>
+                            <li><a href="<?= base_url('Crea_Unidad')?>">Unidades</a></li>
+                        </ul>
+                </div>
+                
+                    
             </nav>       
         </div>
             

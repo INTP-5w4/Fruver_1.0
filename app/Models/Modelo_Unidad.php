@@ -3,16 +3,12 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Modelo_producto extends Model{
-    protected $table      = 'producto';
+class Modelo_Unidad extends Model{
+    protected $table      = 'unidad_medida';
     // Uncomment below if you want add primary key
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nombre','descripcion','id_unidad_medida'];
+    protected $allowedFields = ['nombre','abreviacion'];
     
-    public function getproducto($id){
-        return $this->where('id',$id)-> first();
-    }
-
     public function borrar($id){
         if($this->delete($id))
             return true;
