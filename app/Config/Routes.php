@@ -18,3 +18,6 @@ $routes->post('guardar_cliente', 'Clientes::guardar_cliente');
 $routes->get('borrarid/(:num)', 'Clientes::elimina_cliente/$1');
 $routes->get('pasoid/(:num)', 'Clientes::recupera_cliente/$1');
 $routes->post('edita_cliente', 'Clientes::edita_cliente');
+$routes->get('crea_merma', 'Merma::crea_merma');
+$routes->get('guarda_merma', 'Merma::guarda_merma');
+$routes->get('lista_merma', 'Merma::lista_merma');
