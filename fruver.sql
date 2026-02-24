@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-02-2026 a las 03:57:32
+-- Tiempo de generación: 23-02-2026 a las 02:23:44
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -99,8 +99,8 @@ CREATE TABLE `pedido` (
   `estatus` varchar(150) NOT NULL,
   `nota` varchar(300) NOT NULL,
   `total` int(11) NOT NULL,
-  `vehiculo_id` int(11) NOT NULL,
   `cliente_id` int(11) NOT NULL,
+  `vehiculo_id` int(11) NOT NULL,
   `repartidor_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -127,8 +127,8 @@ CREATE TABLE `producto_pedido` (
   `id` int(11) NOT NULL,
   `producto_precio` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `producto_id` int(11) NOT NULL,
-  `pedido_id` int(11) NOT NULL
+  `pedido_id` int(11) NOT NULL,
+  `producto_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -195,9 +195,9 @@ ALTER TABLE `merma`
 --
 ALTER TABLE `pedido`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `REPARTIDOR_ID` (`repartidor_id`),
-  ADD KEY `CLIENTE_ID` (`cliente_id`),
-  ADD KEY `VEHICULO_ID` (`vehiculo_id`);
+  ADD KEY `cliente` (`cliente_id`),
+  ADD KEY `vehiculo_id` (`vehiculo_id`),
+  ADD KEY `repartidor_id` (`repartidor_id`);
 
 --
 -- Indices de la tabla `producto`
@@ -210,8 +210,8 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `producto_pedido`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `PRODUCTO_ID` (`producto_id`),
-  ADD KEY `PEDIDO_ID` (`pedido_id`);
+  ADD KEY `PEDIDO_ID` (`pedido_id`),
+  ADD KEY `producto_id` (`producto_id`);
 
 --
 -- Indices de la tabla `repartidor`
@@ -291,34 +291,34 @@ ALTER TABLE `vehiculo`
 -- Filtros para la tabla `credito`
 --
 ALTER TABLE `credito`
-  ADD CONSTRAINT `credito_ibfk_1` FOREIGN KEY (`CLIENTE_ID`) REFERENCES `cliente` (`ID`);
+  ADD CONSTRAINT `cliente_id` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`);
 
 --
 -- Filtros para la tabla `entradas`
 --
 ALTER TABLE `entradas`
-  ADD CONSTRAINT `PRODUCTO_ID` FOREIGN KEY (`PRODUCTO_ID`) REFERENCES `producto` (`ID`);
+  ADD CONSTRAINT `producto_id` FOREIGN KEY (`producto_id`) REFERENCES `producto` (`id`);
 
 --
 -- Filtros para la tabla `merma`
 --
 ALTER TABLE `merma`
-  ADD CONSTRAINT `ENTRADAS` FOREIGN KEY (`ENTRADAS_ID`) REFERENCES `entradas` (`ID`);
+  ADD CONSTRAINT `entradas_id` FOREIGN KEY (`entradas_id`) REFERENCES `entradas` (`id`);
 
 --
 -- Filtros para la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`REPARTIDOR_ID`) REFERENCES `repartidor` (`ID`),
-  ADD CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`CLIENTE_ID`) REFERENCES `cliente` (`ID`),
-  ADD CONSTRAINT `pedido_ibfk_3` FOREIGN KEY (`VEHICULO_ID`) REFERENCES `vehiculo` (`ID`);
+  ADD CONSTRAINT `cliente` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
+  ADD CONSTRAINT `repartidor_id` FOREIGN KEY (`repartidor_id`) REFERENCES `repartidor` (`id`),
+  ADD CONSTRAINT `vehiculo_id` FOREIGN KEY (`vehiculo_id`) REFERENCES `vehiculo` (`id`);
 
 --
 -- Filtros para la tabla `producto_pedido`
 --
 ALTER TABLE `producto_pedido`
-  ADD CONSTRAINT `producto_pedido_ibfk_1` FOREIGN KEY (`PRODUCTO_ID`) REFERENCES `producto` (`ID`),
-  ADD CONSTRAINT `producto_pedido_ibfk_2` FOREIGN KEY (`PEDIDO_ID`) REFERENCES `pedido` (`ID`);
+  ADD CONSTRAINT `pedido_id` FOREIGN KEY (`pedido_id`) REFERENCES `pedido` (`id`),
+  ADD CONSTRAINT `producto_pedido_ibfk_1` FOREIGN KEY (`producto_id`) REFERENCES `producto` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
