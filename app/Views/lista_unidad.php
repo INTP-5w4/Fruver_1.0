@@ -23,8 +23,8 @@
             echo ("<tr><td>".$unidad['id'].
                 "</td><td>".$unidad['nombre'].
                 "</td><td>".$unidad['abreviacion'].
-                "</td><td><a href='".base_url('pasaid/'.$unidad['id'])."'><i class='fa-solid fa-pencil'></i></a></td>
-                <td><a href='".base_url('borraid/'.$unidad['id'])."'><i class='fa-solid fa-trash-can'></i></a></td>
+                "</td><td><a href='".base_url('pasaidunidad/'.$unidad['id'])."'><i class='fa-solid fa-pencil'></i></a></td>
+                <td><a href='".base_url('borraidunidad/'.$unidad['id'])."'><i class='fa-solid fa-trash-can'></i></a></td>
                 </tr>");
             }
             ?>

@@ -9,6 +9,9 @@ class Modelo_Unidad extends Model{
     protected $primaryKey = 'id';
     protected $allowedFields = ['nombre','abreviacion'];
     
+    public function getunidad($id){
+    return $this->where('id',$id)-> first();
+    }
     public function borrar($id){
         if($this->delete($id))
             return true;

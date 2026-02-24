@@ -29,5 +29,6 @@ $routes->get('Crea_entradas', 'Entradas::Crea_entrada');
 $routes->get('Crea_Unidad', 'U_Medida::Crea_unidad');
 $routes->post('Guarda_Unidad', 'U_Medida::Guarda_Unidad');
 $routes->get('Mostrar_Unidades', 'U_Medida::Mostrar_Unidades');
-$routes->get('borraid/(:num)', 'U_Medida::eliminar_datos/$1');
-$routes->get('pasaid/(:num)', 'U_Medida::recupera/$1');
+$routes->get('borraidunidad/(:num)', 'U_Medida::eliminar_datos/$1');
+$routes->get('pasaidunidad/(:num)', 'U_Medida::recupera/$1');
+$routes->post('modifica_unidad', 'U_Medida::modificar');
