@@ -25,6 +25,8 @@ $routes->get('guarda_merma', 'Merma::guarda_merma');
 $routes->get('lista_merma', 'Merma::lista_merma');
 //===================================================================
 $routes->get('Crea_entradas', 'Entradas::Crea_entrada');
+$routes->post('Guardar_Entrada', 'Entradas::Guardar_Entrada');
+
 //===================================================================
 $routes->get('Crea_Unidad', 'U_Medida::Crea_unidad');
 $routes->post('Guarda_Unidad', 'U_Medida::Guarda_Unidad');

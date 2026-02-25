@@ -6,13 +6,13 @@
     <title>Añade entradas</title>
 </head>
 <body>
-    <form action="<?= base_url('') ?>">
+    <form action="<?= base_url('Guardar_Entrada') ?>" method="post">
         <label>Registrado el:</label>
         <?php 
             date_default_timezone_set('America/Mexico_City'); 
             $fecha_mexico = date('Y-m-d H:i:s'); 
         ?>
-        <input name="timestamp" value="<?=$fecha_mexico; ?>" readonly><br>
+        <input name="fecha" value="<?=$fecha_mexico; ?>" readonly><br>
         <label for="precioc">Precio de compra:</label>
         <input type="number" name="precio_compra" placeholder="Inserte solo números"><br>
         
@@ -22,13 +22,23 @@
         <label for="cantidad">Cantidad:</label>
         <input type="number" name="cant" placeholder="Inserte solo números"><br>
         
-        <label for="u_medida">Unidad de medida:</label>
-        <Select>
-            <option value="Bulto_25">Bulto 25kg</option>
-            <option value="Caja_20">Caja 20kg</option>
-            <option value="Galon">Galón</option>
-            <option value="Garrafon">Garrafón</option>
-        </Select><br>
+       <label for="u_med">Unidad de Medida:</label>
+            <select name="u_med" required>
+                 <option value="" Placeholder="Seleccione una opcion"></option>
+                    <?php foreach($unidades as $u): ?>
+                <option value="<?= $u['id']; ?>">
+                    <?= $u['nombre']; ?> </option>
+                    <?php endforeach; ?>
+            </select><br>
+
+            <label for="producto_asignado">Producto asignado:</label>
+            <select name="prod_id" required>
+                 <option value="" Placeholder="Seleccione una opcion"></option>
+                    <?php foreach($productos as $p): ?>
+                <option value="<?= $p['id']; ?>">
+                    <?= $p['nombre']; ?> </option>
+                    <?php endforeach; ?>
+            </select><br>
         
 
 
