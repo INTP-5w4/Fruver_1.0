@@ -44,6 +44,7 @@
              Más que una empresa, somos familia dando lo mejor desde México para México.            </p>
             <div class="container_button">
                 <a href="<?= base_url('lista_producto')?>"><button>Ver productos</button></a>
+                <a href="<?= base_url('lista_entrada')?>"><button>Lista de entradas</button></a>
             </div>
             
              <div class="iconos_hero">
