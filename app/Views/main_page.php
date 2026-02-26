@@ -54,23 +54,14 @@
         </div>
     </section>
     <section>
-        <h2>Nuestros Productos</h2>
-        <h6>Los mejores precios en frutas, verduras y abarrotes</h6>
-        <h4>Frutas</h4>
-        <div class="ver_mas">
-            <h6>Ver mas frutas</h6>
-        </div>
-        <hr>
-
-
-        <div class="container carrusel">
-        <div class="card" style="width:350px">
-            <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image" style="width:100%">
-            <div class="card-body">
-            <h4 class="card-title">Manzana</h4>
-            <p class="card-text">La manzana es buena para no ir al doctor</p>
-            <a href="#" class="btn btn-primary">ver mas</a>
-            </div>
+        <div class="container_links">
+        <a href="#"><button onclick="Abrir_lista_producto()">Productos</button></a>
+        <a href="#"><button onclick="Abrir_lista_producto()">Pedidos</button></a>
+        <a href="#"><button onclick="Abrir_lista_producto()">Merma</button></a>
+        <a href="#"><button onclick="Abrir_lista_producto()">Entradas</button></a>
+        <a href="#"><button onclick="Abrir_lista_producto()">Créditos</button></a>
+        <a href="#"><button onclick="Abrir_lista_producto()">Clientes</button></a>
+        <a href="#"><button onclick="Abrir_lista_producto()">Repartidores</button></a>
         </div>
     </section>
     <footer>

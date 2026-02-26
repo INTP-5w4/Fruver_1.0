@@ -70,6 +70,4 @@ class Controlador extends BaseController
             return redirect()->to(base_url('lista_producto'));
          }
     }
-
-
 }

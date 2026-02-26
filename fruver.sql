@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-02-2026 a las 02:23:44
+-- Tiempo de generación: 24-02-2026 a las 19:27:02
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -68,8 +68,8 @@ CREATE TABLE `entradas` (
   `precio_compra` int(11) NOT NULL,
   `precio_venta` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `unidad_medida` varchar(150) NOT NULL,
-  `producto_id` int(11) NOT NULL
+  `producto_id` int(11) NOT NULL,
+  `unidad_medida_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -113,9 +113,17 @@ CREATE TABLE `pedido` (
 CREATE TABLE `producto` (
   `id` int(11) NOT NULL,
   `nombre` varchar(200) NOT NULL,
-  `unidad_medida` varchar(150) NOT NULL,
-  `descripcion` varchar(400) NOT NULL
+  `descripcion` varchar(400) NOT NULL,
+  `id_unidad_medida` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `id_unidad_medida`) VALUES
+(4, 'tomate saladet', 'Rojo', 1),
+(5, 'Plátano Macho', 'Amarillo', 1);
 
 -- --------------------------------------------------------
 
@@ -151,6 +159,25 @@ CREATE TABLE `repartidor` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `unidad_medida`
+--
+
+CREATE TABLE `unidad_medida` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `abreviacion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `unidad_medida`
+--
+
+INSERT INTO `unidad_medida` (`id`, `nombre`, `abreviacion`) VALUES
+(1, 'Kilogramo', 'kg');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `vehiculo`
 --
 
@@ -181,7 +208,8 @@ ALTER TABLE `credito`
 --
 ALTER TABLE `entradas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `PRODUCTO_ID` (`producto_id`);
+  ADD KEY `PRODUCTO_ID` (`producto_id`),
+  ADD KEY `unidad_medida_id` (`unidad_medida_id`);
 
 --
 -- Indices de la tabla `merma`
@@ -195,15 +223,16 @@ ALTER TABLE `merma`
 --
 ALTER TABLE `pedido`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `cliente` (`cliente_id`),
   ADD KEY `vehiculo_id` (`vehiculo_id`),
-  ADD KEY `repartidor_id` (`repartidor_id`);
+  ADD KEY `repartidor_id` (`repartidor_id`),
+  ADD KEY `id_cliente` (`cliente_id`);
 
 --
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `unidad_medida_id` (`id_unidad_medida`);
 
 --
 -- Indices de la tabla `producto_pedido`
@@ -217,6 +246,12 @@ ALTER TABLE `producto_pedido`
 -- Indices de la tabla `repartidor`
 --
 ALTER TABLE `repartidor`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `unidad_medida`
+--
+ALTER TABLE `unidad_medida`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -263,7 +298,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `producto_pedido`
@@ -276,6 +311,12 @@ ALTER TABLE `producto_pedido`
 --
 ALTER TABLE `repartidor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `unidad_medida`
+--
+ALTER TABLE `unidad_medida`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
@@ -297,6 +338,7 @@ ALTER TABLE `credito`
 -- Filtros para la tabla `entradas`
 --
 ALTER TABLE `entradas`
+  ADD CONSTRAINT `id_unidad_medida` FOREIGN KEY (`unidad_medida_id`) REFERENCES `unidad_medida` (`id`),
   ADD CONSTRAINT `producto_id` FOREIGN KEY (`producto_id`) REFERENCES `producto` (`id`);
 
 --
@@ -309,16 +351,22 @@ ALTER TABLE `merma`
 -- Filtros para la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  ADD CONSTRAINT `cliente` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
+  ADD CONSTRAINT `id_cliente` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
   ADD CONSTRAINT `repartidor_id` FOREIGN KEY (`repartidor_id`) REFERENCES `repartidor` (`id`),
   ADD CONSTRAINT `vehiculo_id` FOREIGN KEY (`vehiculo_id`) REFERENCES `vehiculo` (`id`);
+
+--
+-- Filtros para la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD CONSTRAINT `unidad_medida_id` FOREIGN KEY (`id_unidad_medida`) REFERENCES `unidad_medida` (`id`);
 
 --
 -- Filtros para la tabla `producto_pedido`
 --
 ALTER TABLE `producto_pedido`
-  ADD CONSTRAINT `pedido_id` FOREIGN KEY (`pedido_id`) REFERENCES `pedido` (`id`),
-  ADD CONSTRAINT `producto_pedido_ibfk_1` FOREIGN KEY (`producto_id`) REFERENCES `producto` (`id`);
+  ADD CONSTRAINT `id_producto` FOREIGN KEY (`producto_id`) REFERENCES `producto` (`id`),
+  ADD CONSTRAINT `pedido_id` FOREIGN KEY (`pedido_id`) REFERENCES `pedido` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
