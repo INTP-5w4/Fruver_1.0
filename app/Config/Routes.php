@@ -24,8 +24,12 @@ $routes->get('crea_merma', 'Merma::crea_merma');
 $routes->get('guarda_merma', 'Merma::guarda_merma');
 $routes->get('lista_merma', 'Merma::lista_merma');
 //===================================================================
+$routes->get('lista_entrada', 'Entradas::lista_entrada');
 $routes->get('Crea_entradas', 'Entradas::Crea_entrada');
 $routes->post('Guardar_Entrada', 'Entradas::Guardar_Entrada');
+$routes->get('borraid_entrada/(:num)', 'Entradas::eliminar_datos/$1');
+$routes->get('pasaid_entrada/(:num)', 'Entradas::recupera/$1');
+$routes->post('modifica_Entrada', 'Entradas::modificar');
 
 //===================================================================
 $routes->get('Crea_Unidad', 'U_Medida::Crea_unidad');

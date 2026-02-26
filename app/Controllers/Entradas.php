@@ -16,7 +16,7 @@ class Entradas extends Controller{
     return view('Crea_entradas', $datos);
 }
     public function Guardar_Entrada(){
-        $m_entradas= new Modelo_Entrada();
+        $m_entrada= new Modelo_Entrada();
         $datos_de_la_entrada=[
             'fecha'=>$this->request->getPost('fecha'),
             'precio_compra'=>$this->request->getPost('precio_compra'),
@@ -41,11 +41,51 @@ class Entradas extends Controller{
             return view('Crea_entradas', $datos);
             }else{
             $m_entrada->insert($datos_de_la_entrada);
-            return $this->mostrar_entradas();
+            return $this->lista_entrada();
         }
     
     }
-    public function mostrar_entradas(){
-        echo "hola";
+    public function lista_entrada(){
+        $m_entrada= new Modelo_Entrada();
+        $n=$m_entrada->findAll();
+        $datos_de_entrada=['entradas'=>$n];
+        return view('lista_entradas', $datos_de_entrada);
         }
+        public function eliminar_datos($id=null){
+        if ($id!=null)
+        $m_entrada= new Modelo_Entrada();
+        $n=$m_entrada->findAll();
+        $datos_de_entrada=['entradas'=>$n];
+        if ($m_entrada->borrar($id)==true)
+            return view('lista_entrada');
+        else
+            echo 'Algo ha fallado';
+    }
+    public function recupera($id=null){
+        if($id!=null){
+            $m_entrada= new Modelo_Entrada();
+            $m_unidad= new Modelo_Unidad();
+            $m_producto= new Modelo_producto();
+            $datos=[
+            'productos'=>$m_producto->findAll($id),
+            'unidades'=>$m_unidad->findAll($id),
+            'entradas'=>$m_entrada->getentrada($id)
+    ];
+        return view('modifica_entrada',$datos);
+        }}
+    public function modificar(){
+        $m_entrada= new Modelo_Entrada();
+        $id= $this->request->getPost('id');
+        $datos_entrada=[
+            'fecha'=>$this->request->getPost('fecha'),
+            'precio_compra'=>$this->request->getPost('precio_compra'),
+            'precio_venta'=>$this->request->getPost('precio_venta'),
+            'cantidad'=>$this->request->getPost('cant'),
+            'u_med'=>$this->request->getPost('u_med'),
+            'producto_asignado'=>$this->request->getPost('prod_id'),
+        ];
+        if($m_entrada->update($id,$datos_entrada)){
+            return $this->lista_entrada();
+        }
+    }
 }

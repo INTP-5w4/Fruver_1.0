@@ -6,7 +6,7 @@ use App\Models\Modelo_merma;
 class Merma extends Controller{
 
 public function crea_merma(){
-    $mentrada = new Entradas_model();
+    $mentrada = new Modelo_merma();
     $datos['entradas'] = $mentrada->findAll();
     return view('crea_merma', $datos);
 }
