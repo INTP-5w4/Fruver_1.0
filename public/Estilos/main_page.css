@@ -22,7 +22,8 @@ header{
         padding: 3px 0px;
         position: fixed;
         width: 100%;
-}
+        z-index: 10;
+    }
 header .container{
     display: flex;
     justify-content: space-between;
@@ -105,12 +106,18 @@ nav p:hover{
     text-align: center;
     color: rgb(250, 250, 250);
     padding: 10vh 10vh;
+    font-size: 1.2em;
 }
 .container_h1{
     display: flex;
     font-size: 3.7em;
 }
+.container_h1 .fru{
+    font-size: 1.2em;
+    color: rgb(250, 250, 250);
+}
 .container_h1 .ver{
+    font-size: 1.2em;
     color: rgba(0, 187, 16, 0.822);
 }
 .container_button button{
@@ -137,7 +144,7 @@ nav p:hover{
     padding: 15vh 0;
     min-width: 800px;
     max-width: 1000px;
-    font-size: 1.5em;
+    font-size: 1.7em;
 }
 .hero2 h2{
     font-size: 2.4em;
@@ -207,3 +214,42 @@ footer a i:hover{
     color: burlywood;
     transform: scale(1.5);
 }
+.Buttons{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins';
+    min-width: 80vw;
+    min-height: 80vh;
+    box-sizing: border-box;
+    align-items: center;
+}
+.Buttons button{
+    margin: 4vh;
+    width: 25vw;
+    height: 300px;
+    border: none;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px 0 30px 0;
+    background-color: rgba(0, 122, 10, 0.822);
+    color: rgb(250, 250, 250);
+    padding: 0;
+}
+.Buttons p{
+    margin: 0;
+    font-size: 2em;
+    top: 35px;
+}
+.Buttons i{
+    font-size: 102px;
+    padding: 10px;
+}
+.Buttons button:hover{
+    color: rgba(0, 122, 10, 0.822);
+    background-color: rgba(1, 163, 15, 0.822);
+    border-radius: 10px;
+    transform: scale(1.1);
+    box-shadow: 4px 4px rgba(253, 253, 253, 0.486);
+    color: antiquewhite;
+}
+

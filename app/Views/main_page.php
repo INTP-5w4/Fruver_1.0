@@ -36,15 +36,13 @@
     <section class="H_padre">
         <div class="hero2">
             <div class="container_h1">
-                <h1>FRU</h1>
+                <h1 class="fru">FRU</h1>
                 <h1 class="ver">VER</h1>
             </div>
             <h2>Frutas y verduras de Veracruz</h2>
             <p>Somos una compañia mexicana con una historia damiliar detrás, ofrecemos productos de origen mexicano y alta calidad, los cuales esperamos que degustes y disfrutes.
              Más que una empresa, somos familia dando lo mejor desde México para México.            </p>
             <div class="container_button">
-                <a href="<?= base_url('lista_producto')?>"><button>Ver productos</button></a>
-                <a href="<?= base_url('lista_entrada')?>"><button>Lista de entradas</button></a>
             </div>
             
              <div class="iconos_hero">
@@ -54,17 +52,50 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="Buttons">
+
         <div class="container_links">
-        <a href="#"><button onclick="Abrir_lista_producto()">Productos</button></a>
-        <a href="#"><button onclick="Abrir_lista_producto()">Pedidos</button></a>
-        <a href="#"><button onclick="Abrir_lista_producto()">Merma</button></a>
-        <a href="#"><button onclick="Abrir_lista_producto()">Entradas</button></a>
-        <a href="#"><button onclick="Abrir_lista_producto()">Créditos</button></a>
-        <a href="#"><button onclick="Abrir_lista_producto()">Clientes</button></a>
-        <a href="#"><button onclick="Abrir_lista_producto()">Repartidores</button></a>
+            <a href="<?= base_url('lista_producto') ?>"><button>
+                <i class="fa-solid fa-apple-whole"></i>
+                <p>Productos</p>
+            </button></a>
+            <a href="#"><button>
+                <i class="fa-solid fa-boxes-packing"></i>
+                <P>Pedidos</P>
+            </button></a>
+            <a href="#"><button>
+                <i class="fa-solid fa-drumstick-bite"></i>
+                <p>Merma</p>
+            </button></a>
         </div>
-    </section>
+
+        <div class="container_links_2">
+            <a href="#"><button>
+                <i class="fa-solid fa-people-carry-box"></i>
+                <p>Entradas</p></button></a>
+
+
+            <a href="#"><button>
+                <i class="fa-solid fa-credit-card"></i>
+                <p>Créditos</p>
+            </button></a>
+            
+            
+            <a href="#"><button>
+                <i class="fa-solid fa-users"></i>
+                <p>Clientes</p>
+            </button>
+            </a>
+        </div>
+        
+        <div class="container_links_3">
+            <a href="#"><button>
+                <i class="fa-solid fa-truck-fast"></i>
+                <p>Repartidores</p>
+        </button></a>
+        </div>
+</section>
+
     <footer>
         <div class="footer_container">
             <div class="foot_contacto">
