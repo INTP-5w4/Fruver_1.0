@@ -17,15 +17,6 @@
                 <a href="#">Sobre nosotros</a>
                 <a href="#">Productos</a>
                 <a href="#">Contacto</a>
-                <div class="acciones">
-                    <p>Acciones</p>
-                        <ul>
-                            <li><a href="<?= base_url('crea_producto') ?>">Añadir productos</a></li>
-                            <li><a href="<?= base_url('lista')?>">Clientes</a></li>
-                            <li><a href="<?= base_url('lista_merma')?>">Merma</a></li>
-                            <li><a href="<?= base_url('Crea_entradas')?>">Entradas</a></li>
-                            <li><a href="<?= base_url('Crea_Unidad')?>">Unidades</a></li>
-                        </ul>
                 </div>
                 
                     
@@ -63,14 +54,14 @@
                 <i class="fa-solid fa-boxes-packing"></i>
                 <P>Pedidos</P>
             </button></a>
-            <a href="#"><button>
+            <a href="<?= base_url('lista_merma')?>"><button>
                 <i class="fa-solid fa-drumstick-bite"></i>
                 <p>Merma</p>
             </button></a>
         </div>
 
         <div class="container_links_2">
-            <a href="#"><button>
+            <a href="<?= base_url('lista_entrada')?>"><button>
                 <i class="fa-solid fa-people-carry-box"></i>
                 <p>Entradas</p></button></a>
 
@@ -81,7 +72,7 @@
             </button></a>
             
             
-            <a href="#"><button>
+            <a href="<?= base_url('lista')?>"><button>
                 <i class="fa-solid fa-users"></i>
                 <p>Clientes</p>
             </button>
@@ -92,6 +83,10 @@
             <a href="#"><button>
                 <i class="fa-solid fa-truck-fast"></i>
                 <p>Repartidores</p>
+        </button></a>
+            <a href="<?= base_url('Mostrar_Unidades')?>"><button>
+                <i class="fa-solid fa-scale-balanced"></i>
+                <p>Unidades de M.</p>
         </button></a>
         </div>
 </section>
