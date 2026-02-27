@@ -3,10 +3,11 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\Modelo_merma;
+use App\Models\Modelo_Entrada;
 class Merma extends Controller{
 
 public function crea_merma(){
-    $mentrada = new Modelo_merma();
+    $mentrada = new Modelo_entrada();
     $datos['entradas'] = $mentrada->findAll();
     return view('crea_merma', $datos);
 }
