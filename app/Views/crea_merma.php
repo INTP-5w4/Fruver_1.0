@@ -9,10 +9,10 @@
    <form action="<?= base_url('guardar_merma') ?>" method="post">
         <label>Entrada</label>
         <select name="entrada" required>
-            <option value="">Selecciona una entrada</option>
+            <option value="" Placeholder="Selecciona una entrada"></option>
             <?php foreach($entradas as $entrada){ ?>
                 <option value="<?= $entrada['id'] ?>">
-                    ID: <?= $entrada['id'] ?> - <?= $entrada['unidad_medida'] ?> (<?= $entrada['fecha'] ?>)
+          ID: <?= $entrada['id'] ?> - Producto ID: <?= $entrada['producto_id'] ?> (<?= $entrada['fecha'] ?>)
                 </option>
             <?php } ?>
         </select><br>
