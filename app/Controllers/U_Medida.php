@@ -49,6 +49,6 @@ class U_Medida extends Controller{
             'nombre'=>$this->request->getPost('nom'),
             'abreviacion'=>$this->request->getPost('abrev'),
          ];
-         return $this->Mostrar_Unidades();
+         return view('modifica_unidad',$datos_de_unidad);
 }
 }

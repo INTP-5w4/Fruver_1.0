@@ -31,10 +31,19 @@ $routes->get('borraid_entrada/(:num)', 'Entradas::eliminar_datos/$1');
 $routes->get('pasaid_entrada/(:num)', 'Entradas::recupera/$1');
 $routes->post('modifica_Entrada', 'Entradas::modificar');
 
-//===================================================================
+//===============================================================================
 $routes->get('Crea_Unidad', 'U_Medida::Crea_unidad');
 $routes->post('Guarda_Unidad', 'U_Medida::Guarda_Unidad');
 $routes->get('Mostrar_Unidades', 'U_Medida::Mostrar_Unidades');
 $routes->get('borraidunidad/(:num)', 'U_Medida::eliminar_datos/$1');
 $routes->get('pasaidunidad/(:num)', 'U_Medida::recupera/$1');
 $routes->post('modifica_unidad', 'U_Medida::modificar');
+//==============================================================================
+$routes->get('alta_repartidor', 'Repartidores::alta_repartidor');
+$routes->post('Crea_repartidor', 'Repartidores::Crea_repartidor');
+$routes->get('lista_repartidor', 'Repartidores::lista_repartidor');
+$routes->get('borra_id_repartidor/(:num)', 'Repartidores::eliminar_datos/$1');
+$routes->get('pasa_id_repartidor/(:num)', 'Repartidores::recupera/$1');
+$routes->post('modifica_repartidor', 'Repartidores::modificar');
+//=============================================================================
+$routes->get('alta_pedido', 'Pedidos::alta_pedido');

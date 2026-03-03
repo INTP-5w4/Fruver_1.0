@@ -50,7 +50,7 @@
                 <i class="fa-solid fa-apple-whole"></i>
                 <p>Productos</p>
             </button></a>
-            <a href="#"><button>
+            <a href="<?= base_url('alta_pedido') ?>"><button>
                 <i class="fa-solid fa-boxes-packing"></i>
                 <P>Pedidos</P>
             </button></a>
@@ -80,7 +80,7 @@
         </div>
         
         <div class="container_links_3">
-            <a href="#"><button>
+            <a href="<?= base_url('lista_repartidor') ?>"><button>
                 <i class="fa-solid fa-truck-fast"></i>
                 <p>Repartidores</p>
         </button></a>
