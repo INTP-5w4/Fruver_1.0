@@ -9,7 +9,7 @@
     <form action="<?= base_url('Guardar_credito') ?>" method="post">
         <label>Registrado el:</label>
         <?php
-          date_default_timezone_set('America/Mexico_City')
+          date_default_timezone_set('America/Mexico_City');
           $fecha_mexico = date('Y-m-d H:i:s');
         ?>
         <input name="fecha_inicio" value="<?=$fecha_mexico; ?>" readonly><br>
