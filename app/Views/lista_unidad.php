@@ -41,7 +41,7 @@
     <div id="id01" class="w3-modal">
     <div class="w3-modal-content w3-animate-top"
         style="width:60%; max-width:800px; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.3);">
-      <header class="w3-container w3-teal"style="border-radius:10px 10px 0 0;"> 
+      <header class="w3-container w3-green" style="border-radius:10px 10px 0 0;"> 
         <span onclick="cierraIframe()"
         class="w3-button w3-display-topright">&times;</span>
         <h2 style="margin:0;">Editar unidad</h2>
@@ -50,7 +50,7 @@
             <iframe id="iframecontenido"
             style="width:100%; height:450px; border:none;"></iframe>
         </div>
-      <footer class="w3-container w3-teal"
+      <footer class="w3-container w3-green"
          style="border-radius:0 0 10px 10px; text-align:right;">
         <button class="w3-button w3-white" onclick="cierraIframe()">Cerrar</button>
     </footer>
