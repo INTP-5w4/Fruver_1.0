@@ -29,6 +29,7 @@
                 class=\"w3-button w3-green w3-border\">
                 <i class=\"fa-solid fa-pencil\"></i>
                 </button>
+                
                 </td>
                 
                 <td><a href='".base_url('borraidunidad/'.$unidad['id'])."'><i class='fa-solid fa-trash-can'></i></a></td>

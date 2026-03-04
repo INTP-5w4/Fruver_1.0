@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <title>Document Title</title>
 </head>
 <body>
+    
     <table>
         <thead>
             <tr>
@@ -34,7 +36,7 @@
                 "</td><td>".$repartidor['correo_electronico'].
                 "</td><td>".$repartidor['telefono'].
                 "</td><td><a href='".base_url('pasa_id_repartidor/'.$repartidor['id'])."'><i class='fa-solid fa-pencil'></i></a>".
-                "</td><td><a href='".base_url('borra_id_repartidor/'.$repartidor['id'])."'><i class='fa-solid fa-trash'></i></a></tr>");
+                "</td><td><a href='".base_url('borra_id_repartidor/'.$repartidor['id'])."'><i class='fa-solid fa-trash-can'></i></a></td></tr>");
                 }?>
         </tbody>
     </table>
