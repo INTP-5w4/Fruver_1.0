@@ -5,8 +5,8 @@ use CodeIgniter\Model;
 
 class Modelo_credito extends Model{
     protected $table      = 'credito';
+    // Uncomment below if you want add primary key
     protected $primaryKey = "id";
-    
     protected $allowedFields = ['fecha_inicio','fecha_fin','monto','estatus','credito_disponible','cliente_id'];
     
     public function getcredito($id){
@@ -20,7 +20,4 @@ class Modelo_credito extends Model{
                 return false;
         
     }
-   
-    // Uncomment below if you want add primary key
-    // protected $primaryKey = 'id';
 }
