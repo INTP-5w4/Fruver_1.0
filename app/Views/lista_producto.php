@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Estilos/lista_producto.css">
+    <link rel="stylesheet" href="<?= base_url('Estilos/lista_producto.css') ?>">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Lista de productos</title>
+    <style>#mas1{
+width: 40px;
+height: 40px;
+border: none;
+border-radius: 40px;
+background-color: rgba(0, 122, 10, 0.822);
+color: white;
+}</style>
 </head>
 <body>
-    <a href="<?= base_url('Crea_pedido') ?>"><button class="mas">
+    <a href="<?= base_url('crea_producto') ?>"><button class="mas" id="mas1">
         <i class="fa-solid fa-plus"></i>
     </button></a>
     <table>
