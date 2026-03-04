@@ -12,4 +12,4 @@ class Cliente_model extends Model{
     public function getCliente($id){
     return $this->where('id', $id)->first();
 }
-}
+}// PRUEBA_GIT_TERMINAL
