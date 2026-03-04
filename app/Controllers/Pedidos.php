@@ -10,7 +10,15 @@ use CodeIgniter\Controller;
 class Pedidos extends Controller{
 
 public function alta_pedido(){
-    return view('Crea_producto');
+    $m_cliente = new Cliente_model();
+    $m_producto = new Modelo_producto();
+    $m_repartidor = new Modelo_Repartidor();
+    $datos=[
+            'clientes'=>$m_cliente->findAll(),
+            'productos'=>$m_producto->findAll(),
+            'repartidores'=>$m_repartidor->findAll(),
+        ];
+    return view('Crea_pedido', $datos);
 }
 public function Crea_pedido(){
     $m_cliente = new Cliente_model();

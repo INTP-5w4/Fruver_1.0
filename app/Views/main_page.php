@@ -37,7 +37,7 @@
                 <i class="fa-solid fa-apple-whole"></i>
                 <p>Productos</p>
             </button></a>
-            <a href="<?= base_url('alta_pedido') ?>"><button>
+            <a href="<?= base_url('Crea_pedido') ?>"><button>
                 <i class="fa-solid fa-boxes-packing"></i>
                 <P>Pedidos</P>
             </button></a>

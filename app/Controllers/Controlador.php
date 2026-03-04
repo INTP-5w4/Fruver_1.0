@@ -29,9 +29,11 @@ class Controlador extends BaseController
         empty($datos_de_producto['id_unidad_medida'])){
         $m_unidad = new Modelo_Unidad();
         $datos['unidades'] = $m_unidad->findAll();
+        var_dump($datos);die();
         return view('crea_producto', $datos_de_producto);
         }else{
         $m_producto->insert($datos_de_producto);
+        return view('main_page');
         }
     
     }
