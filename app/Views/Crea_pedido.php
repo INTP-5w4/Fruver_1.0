@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="<?= base_url('') ?>" method="post">
+    <form action="<?= base_url('Guarda_pedido') ?>" method="post">
         <label for="fecha">Fecha de inicio</label><br>
         <input type="date" name="fecha_i"><br>
         <label for="fecha_f">Fecha de entrega</label><br>
@@ -33,7 +33,7 @@
             <option value="">Seleccione una opción</option>
             <?php foreach($clientes as $c): ?>
                 <option value="<?= $c['id']; ?>">
-                    <?= $p['nombre']. ' ' . $c['apellido']; ?> </option>
+                    <?= $c['nombre']. ' ' . $c['apellido']; ?> </option>
                     <?php endforeach; ?>
         </select><br>
         <label for="repartidor">Repartidor</label><br>

@@ -4,7 +4,10 @@ use CodeIgniter\Router\RouteCollection;
 
 /**
  * @var RouteCollection $routes
+ * 
  */
+$routes->get('header', 'Controlador::header');
+//=========================================================================
 $routes->get('/', 'Controlador::index');
 $routes->get('crea_producto', 'Controlador::crea_producto');
 $routes->post('guardar_producto', 'Controlador::guardar_producto');
@@ -47,6 +50,7 @@ $routes->get('pasa_id_repartidor/(:num)', 'Repartidores::recupera/$1');
 $routes->post('modifica_repartidor', 'Repartidores::modificar');
 //=============================================================================
 $routes->get('alta_pedido', 'Pedidos::alta_pedido');
+<<<<<<< HEAD
 
 //=============================================================================
 $routes->get('lista_credito', 'Creditos::lista_credito');
@@ -56,3 +60,6 @@ $routes->get('borcre_credito/(:num)', 'Creditos::eliminar_datos/$1');
 $routes->get('pascre_credito/(:num)', 'Creditos::recupera/$1');
 $routes->get('modifica_credito', 'Creditos::modifica_credito');
  
+=======
+$routes->post('Guarda_pedido', 'Pedidos::Guarda_pedido');
+>>>>>>> fd9fbefc8b9b2b62d01a1d7da19ca5fcac94e996

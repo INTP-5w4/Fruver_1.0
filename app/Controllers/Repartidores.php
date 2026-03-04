@@ -71,7 +71,8 @@ class Repartidores extends Controller{
         $m_repartidor= new Modelo_Repartidor();
         $m_repartidor->update($id,$datos_repartidor);
         $n=$m_repartidor->findAll();
-        $datos_repartidor=['repartidores'=>$n];
+        $datos_repartidor=['repartidores'
+        =>$n];
             return view('lista_repartidor',$datos_repartidor);
         
     }

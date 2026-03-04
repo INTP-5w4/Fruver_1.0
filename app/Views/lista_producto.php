@@ -9,7 +9,9 @@
     <title>Lista de productos</title>
 </head>
 <body>
-    
+    <a href="<?= base_url('Crea_pedido') ?>"><button class="mas">
+        <i class="fa-solid fa-plus"></i>
+    </button></a>
     <table>
         <thead>
             <tr>
