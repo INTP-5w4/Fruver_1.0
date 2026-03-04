@@ -66,7 +66,7 @@
                 <p>Entradas</p></button></a>
 
 
-            <a href="#"><button>
+            <a href="<?= base_url('Crea_credito') ?>"><button>
                 <i class="fa-solid fa-credit-card"></i>
                 <p>Créditos</p>
             </button></a>
