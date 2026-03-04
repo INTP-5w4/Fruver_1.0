@@ -9,6 +9,9 @@ class Controlador extends BaseController
     {
         return view('main_page');
     }
+    public function header(){
+        return view('header');
+    }
     public function crea_producto()
 {
     $m_unidad = new Modelo_Unidad();

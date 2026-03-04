@@ -10,20 +10,7 @@
     <title>Página de Inicio</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <p class="logo">FRUVER</p>
-            <nav>
-                <a href="#">Sobre nosotros</a>
-                <a href="#">Productos</a>
-                <a href="#">Contacto</a>
-                </div>
-                
-                    
-            </nav>       
-        </div>
-            
-    </header>
+    <iframe src="<?= base_url('header') ?>" class="header_frame"></iframe>
     <section class="H_padre">
         <div class="hero2">
             <div class="container_h1">

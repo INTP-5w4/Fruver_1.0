@@ -9,10 +9,10 @@ use CodeIgniter\Controller;
 
 class Pedidos extends Controller{
 
-public function Crea_pedido(){
+public function alta_pedido(){
     return view('Crea_producto');
 }
-public function alta_pedido(){
+public function Crea_pedido(){
     $m_cliente = new Cliente_model();
     $m_producto = new Modelo_producto();
     $m_repartidor = new Modelo_Repartidor();
@@ -53,7 +53,7 @@ public function Guarda_pedido(){
         return view('crea_pedido', $datos);
     }else{
         $m_pedido->insert($datos_pedido);
-        return $this->lista_producto();
+        return view('main_page');
     }
 
 }
