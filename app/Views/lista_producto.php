@@ -18,6 +18,10 @@ color: white;
 }</style>
 </head>
 <body>
+    <button onclick="abreIframe('modalProducto', '<?= base_url('crea_producto') ?>')" 
+        class="w3-button w3-green w3-round-xlarge">
+    Agregar producto
+    </button>
     <a href="<?= base_url('crea_producto') ?>"><button class="mas" id="mas1">
         <i class="fa-solid fa-plus"></i>
     </button></a>
@@ -53,12 +57,13 @@ color: white;
             ?>
         </tbody>
     </table>
+    
 
-    <div id="id01" class="w3-modal">
+    <div id="modalProducto" class="w3-modal">
     <div class="w3-modal-content w3-animate-top"
         style="width:60%; max-width:800px; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.3);">
       <header class="w3-container w3-green"style="border-radius:10px 10px 0 0;"> 
-        <span onclick="cierraIframe()"
+        <span onclick="modalProducto('modalProducto')"
         class="w3-button w3-display-topright">&times;</span>
         <h2 style="margin:0;">Editar producto</h2>
       </header>
@@ -68,27 +73,36 @@ color: white;
         </div>
       <footer class="w3-container w3-green"
          style="border-radius:0 0 10px 10px; text-align:right;">
-        <button class="w3-button w3-white" onclick="cierraIframe()">Cerrar</button>
+        <button class="w3-button w3-white" onclick="modalProducto('modalProducto')">Cerrar</button>
     </footer>
     </div>
   </div>
 <script>
-    const modal = document.getElementById('id01');
-    const iframe= document.getElementById('iframecontenido');
-    
-        function abreIframe(url){
-            iframe.src=url
-            modal.style.display="block";
+    function abreIframe(idModal, url) {
+        const modal = document.getElementById(idModal);
+        // Buscamos el iframe que está dentro de ESE modal específico
+        const iframe = modal.querySelector('iframe');
+        
+        iframe.src = url;
+        modal.style.display = "block";
+    }
+
+    function cierraModal(idModal) {
+        const modal = document.getElementById(idModal);
+        const iframe = modal.querySelector('iframe');
+        
+        modal.style.display = "none";
+        iframe.src = "";
+    }
+
+    // Cerrar al hacer clic fuera
+    window.onclick = function(event) {
+        if (event.target.className === 'w3-modal') {
+            event.target.style.display = "none";
+            const iframe = event.target.querySelector('iframe');
+            if(iframe) iframe.src = "";
         }
-        function cierraIframe(){
-            modal.style.display="none";
-            iframe.src="";
-        }
-        window.onclick = function(event){
-            if(event.target == modal){
-            cierraIframe();
-            }
-        }    
+    }
 </script>
     
 </body>
