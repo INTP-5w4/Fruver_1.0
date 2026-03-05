@@ -18,7 +18,7 @@
         <input type="text" name="estatus"><br>
         <input type="number" name="credito_disponible" placeholder="Inserte solo números"><br>
 
-        <label for="cliente_id">-------:</label>
+        <label for="cliente_id">Cliente:</label>
             <select name="cliente_id" required>
                  <option value="" Placeholder="Seleccione una opcion"></option>
                     <?php foreach($mcliente as $u): ?>

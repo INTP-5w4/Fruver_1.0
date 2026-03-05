@@ -59,3 +59,6 @@ $routes->get('borcre_credito/(:num)', 'Creditos::eliminar_datos/$1');
 $routes->get('pascre_credito/(:num)', 'Creditos::recupera/$1');
 $routes->get('modifica_credito', 'Creditos::modifica_credito');
  
+//============================================================================
+//==============================================================================
+$routes->post('Guarda_pedido', 'Pedidos::Guarda_pedido');
