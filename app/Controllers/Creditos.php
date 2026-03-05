@@ -47,11 +47,11 @@ class Creditos extends Controller{
         }
         public function eliminar_datos($id=null){
         if ($id!=null)
-        $m_entrada= new Modelo_Credito();
+        $m_credito= new Modelo_Credito();
         $n=$m_credito->findAll();
         $datos_de_credito=['credito'=>$n];
         if ($m_credito->borrar($id)==true)
-            return view('lista_credito');
+            return view('lista_credito', $datos_de_credito);
         else
             echo 'Algo ha fallado';
     }
