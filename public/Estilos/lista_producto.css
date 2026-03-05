@@ -17,6 +17,14 @@ table{
 
 
 }
+a button.mas{
+width: 40px;
+height: 40px;
+border: none;
+border-radius: 40px;
+background-color: rgba(0, 122, 10, 0.822);
+color: white;
+}
 table thead{
     background-color: rgba(0, 122, 10, 0.822);
     color: antiquewhite;

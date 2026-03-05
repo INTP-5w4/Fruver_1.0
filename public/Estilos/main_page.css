@@ -16,49 +16,16 @@ a{
     text-decoration: none;
     color: black;
 }
-header{
-        background-color: rgb(225, 225, 225);
+.header_frame{
+    background-color: rgb(225, 225, 225);
         align-items: center;
         padding: 3px 0px;
         position: fixed;
         width: 100%;
         z-index: 10;
-    }
-header .container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2px 0px;
+}
 
-}
-nav{
-    display: inline-block;
-    margin-right: 10px;
-    align-items: center center;
-}
-nav a {
-    text-decoration: none;
-    color: rgb(0,0,0);
-    padding: 0px 15px;
-    align-items: center center;
-}
-nav a:hover {
-    text-decoration: none;
-    color: rgba(0, 122, 10, 0.822);
-    padding: 0px 15px;
-}
-nav p{
-    text-decoration: none;
-    color: rgb(0,0,0);
-    padding: 0px 15px;
-    align-items: center center;
-    margin: 0;
-}
-nav p:hover{
-    text-decoration: none;
-    color: rgba(0, 122, 10, 0.822);
-    padding: 0px 15px;
-}
+
 .H_padre{
     display: flex;
     width: 100%;
