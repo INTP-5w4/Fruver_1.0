@@ -18,7 +18,7 @@
                 <h1 class="ver">VER</h1>
             </div>
             <h2>Frutas y verduras de Veracruz</h2>
-            <p>Somos una compañia mexicana con una historia damiliar detrás, ofrecemos productos de origen mexicano y alta calidad, los cuales esperamos que degustes y disfrutes.
+            <p>Somos una compañia mexicana con una historia familiar detrás, ofrecemos productos de origen mexicano y alta calidad, los cuales esperamos que degustes y disfrutes.
              Más que una empresa, somos familia dando lo mejor desde México para México.            </p>
             <div class="container_button">
             </div>
