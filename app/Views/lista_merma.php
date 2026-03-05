@@ -13,7 +13,7 @@
         class="w3-button w3-green w3-round-xlarge">
   Añadir Merma
 </button>
-    <table class="table table-light">
+    <table class="w3-table w3-bordered w3-striped w3-hoverable w3-card">
         <thead>
             <tr>
                 <th>ID</th>

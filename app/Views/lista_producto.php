@@ -10,7 +10,7 @@
     <title>Lista de productos</title>
 </head>
 <body>
-    <table>
+        <table class="w3-table w3-bordered w3-striped w3-hoverable w3-card">
         <thead>
             <tr>
                 <td>ID</td>
