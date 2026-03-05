@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="<?= base_url('Guarda_pedido') ?>" method="post">
+    <form action="<?= base_url('#') ?>" method="post">
         <label for="fecha">Fecha de inicio</label><br>
         <input type="date" name="fecha_i"><br>
         <label for="fecha_f">Fecha de entrega</label><br>

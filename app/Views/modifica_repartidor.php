@@ -6,7 +6,7 @@
     <title>Modifica repartidor</title>
 </head>
 <body>
-     <form action="<?= base_url('modifica_repartidor') ?>" method="post">
+     <form action="<?= base_url('modifica_repartidor') ?>" method="post" id="EditRepartidor">
         <input type="hidden" name="id" id="" value="<?=esc($repartidores['id'])?>" placeholder="Ingrese un nombre"><br>
         <label for="nombre">Nombre</label><br>
         <input type="text" name="nom" id="" value="<?=esc($repartidores['nombre'])?>" placeholder="Ingrese un nombre"><br>
@@ -32,5 +32,26 @@
 
 
     </form>
+<script>
+const miForm = document.getElementById('EditRepartidor');
+miForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Detenemos el envío normal
+
+    // 1. Recolectamos los datos del formulario
+    const formData = new FormData(miForm);
+
+    // 2. Los enviamos al servidor
+    fetch(miForm.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        // 3. Si todo salió bien, cerramos el modal en la ventana principal
+        window.parent.cierraModal('EditRepartidor'); // Llama a la función que tienes en la lista
+        window.parent.location.reload(); // Recarga la lista para ver los cambios
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
 </body>
 </html>
