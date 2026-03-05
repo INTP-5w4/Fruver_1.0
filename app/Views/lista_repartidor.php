@@ -38,10 +38,18 @@
                 "</td><td>".$repartidor['rfc'].
                 "</td><td>".$repartidor['domicilio'].
                 "</td><td>".$repartidor['correo_electronico'].
-                "</td><td>".$repartidor['telefono'].
-                "</td><td><a href='".base_url('pasa_id_repartidor/'.$repartidor['id'])."'><i class='fa-solid fa-pencil'></i></a>".
-                "</td><td><a href='".base_url('borra_id_repartidor/'.$repartidor['id'])."'><i class='fa-solid fa-trash-can'></i></a></td></tr>");
-                }?>
+                "</td><td>".$repartidor['telefono']."</td>
+                <td>
+                <button onclick=\"abreModal('EditRepartidor', '".base_url('pasa_id_repartidor/'.$repartidor['id'])."')\" 
+                class=\"w3-button w3-green w3-border\">
+                <i class=\"fa-solid fa-pencil\"></i>
+                </button>
+                </td>
+                
+                <td><a href='".base_url('borra_id_repartidor/'.$repartidor['id'])."'><i class='fa-solid fa-trash-can'></i></a></td>
+                </tr>");
+                }//"</td><td><a href='".base_url('pasa_id_repartidor/'.$repartidor['id'])."'><i class='fa-solid fa-pencil'></i></a>".
+                ?>
         </tbody>
     </table>
         <div id="modalRepartidor" class="w3-modal">
@@ -59,6 +67,24 @@
       <footer class="w3-container w3-green"
          style="border-radius:0 0 10px 10px; text-align:right;">
         <button class="w3-button w3-white" onclick="cierraModal('modalRepartidor')">Cerrar</button>
+    </footer>
+    </div>
+  </div>
+    <div id="EditRepartidor" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top"
+        style="width:60%; max-width:800px; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.3);">
+      <header class="w3-container w3-green"style="border-radius:10px 10px 0 0;"> 
+        <span onclick="cierraModal('EditRepartidor')"
+        class="w3-button w3-display-topright">&times;</span>
+        <h2 style="margin:0;">Editar Repartidor</h2>
+      </header>
+        <div class="w3-container" style="padding:20px;">
+            <iframe id="iframeEdit"
+            style="width:100%; height:450px; border:none;"></iframe>
+        </div>
+      <footer class="w3-container w3-green"
+         style="border-radius:0 0 10px 10px; text-align:right;">
+        <button class="w3-button w3-white" onclick="cierraModal('EditRepartidor')">Cerrar</button>
     </footer>
     </div>
   </div>
