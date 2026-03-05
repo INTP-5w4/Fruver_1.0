@@ -6,7 +6,7 @@
     <title>Document Title</title>
 </head>
 <body>
-    <form action="<?= base_url('edita_cliente') ?>" method="post">
+    <form action="<?= base_url('edita_cliente') ?>" method="post" id="EditCliente">
         <input type="hidden" name="id" value="<?=esc($clientes['id'])?>" required><br>    
         <label>Nombre</label>
         <input type="text" name="nome" value="<?= esc($clientes['nombre'])?>"required><br>
@@ -41,5 +41,26 @@
         <input type="submit" value="Editar">
 
     </form>
+    <script>
+const miForm = document.getElementById('EditCliente');
+miForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Detenemos el envío normal
+
+    // 1. Recolectamos los datos del formulario
+    const formData = new FormData(miForm);
+
+    // 2. Los enviamos al servidor
+    fetch(miForm.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        // 3. Si todo salió bien, cerramos el modal en la ventana principal
+        window.parent.cierraModal('EditCliente'); // Llama a la función que tienes en la lista
+        window.parent.location.reload(); // Recarga la lista para ver los cambios
+    })
+    .catch(error => console.error('Error:', error));
+});
+    </script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <title>Añadir cliente</title>
 </head>
 <body>
-    <form action="<?=base_url('guardar_cliente') ?>" method="post" id="crearProducto">
+    <form action="<?=base_url('guardar_cliente') ?>" method="post" id="crearCliente">
         <label for="nome">Nombre</label>
         <input type="text" name="nome" required><br>
 
@@ -41,7 +41,7 @@
     
     </form>
                 <script>
-const miForm = document.getElementById('crearProducto');
+const miForm = document.getElementById('crearCliente');
 miForm.addEventListener('submit', (e) => {
     e.preventDefault(); // Detenemos el envío normal
 
@@ -55,7 +55,7 @@ miForm.addEventListener('submit', (e) => {
     })
     .then(response => {
         // 3. Si todo salió bien, cerramos el modal en la ventana principal
-        window.parent.cierraIframe(); // Llama a la función que tienes en la lista
+        window.parent.cierraModal('modalCliente'); // Llama a la función que tienes en la lista
         window.parent.location.reload(); // Recarga la lista para ver los cambios
     })
     .catch(error => console.error('Error:', error));
