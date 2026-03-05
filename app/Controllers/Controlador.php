@@ -58,7 +58,7 @@ class Controlador extends BaseController
         if($id!=null){
             $m_producto= new Modelo_producto();
             $datos['productos']=$m_producto->getproducto($id);
-        return view('modifica',$datos);
+        return view('modifica_producto',$datos);
         }
     }
 
