@@ -9,6 +9,9 @@ class Controlador extends BaseController
     {
         return view('main_page');
     }
+    public function header(){
+        return view('header');
+    }
     public function crea_producto()
 {
     $m_unidad = new Modelo_Unidad();
@@ -26,9 +29,11 @@ class Controlador extends BaseController
         empty($datos_de_producto['id_unidad_medida'])){
         $m_unidad = new Modelo_Unidad();
         $datos['unidades'] = $m_unidad->findAll();
+        var_dump($datos);die();
         return view('crea_producto', $datos_de_producto);
         }else{
         $m_producto->insert($datos_de_producto);
+        return view('main_page');
         }
     
     }
@@ -53,7 +58,7 @@ class Controlador extends BaseController
         if($id!=null){
             $m_producto= new Modelo_producto();
             $datos['productos']=$m_producto->getproducto($id);
-        return view('modifica',$datos);
+        return view('modifica_producto',$datos);
         }
     }
 
