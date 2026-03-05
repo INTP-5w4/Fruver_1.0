@@ -50,6 +50,9 @@ $routes->get('pasa_id_repartidor/(:num)', 'Repartidores::recupera/$1');
 $routes->post('modifica_repartidor', 'Repartidores::modificar');
 //=============================================================================
 $routes->get('alta_pedido', 'Pedidos::alta_pedido');
+
+
+
 //=============================================================================
 $routes->get('lista_credito', 'Creditos::lista_credito');
 $routes->get('Crea_credito', 'Creditos::Crea_credito');
@@ -58,5 +61,6 @@ $routes->get('borcre_credito/(:num)', 'Creditos::eliminar_datos/$1');
 $routes->get('pascre_credito/(:num)', 'Creditos::recupera/$1');
 $routes->get('modifica_credito', 'Creditos::modifica_credito');
  
+
 //==============================================================================
 $routes->post('Guarda_pedido', 'Pedidos::Guarda_pedido');
