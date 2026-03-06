@@ -18,13 +18,10 @@ color: white;
 }</style>
 </head>
 <body>
-    <button onclick="abreIframe('modalProducto', '<?= base_url('crea_producto') ?>')" 
+    <button onclick="abreModal('modalProducto', '<?= base_url('crea_producto') ?>')" 
         class="w3-button w3-green w3-round-xlarge">
     Agregar producto
     </button>
-    <a href="<?= base_url('crea_producto') ?>"><button class="mas" id="mas1">
-        <i class="fa-solid fa-plus"></i>
-    </button></a>
     <table>
         <table class="w3-table w3-bordered w3-striped w3-hoverable w3-card">
         <thead>
@@ -45,7 +42,7 @@ color: white;
                 "</td><td>".$producto['id_unidad_medida'].
                 "</td><td>".$producto['descripcion']."</td>
                 <td>
-                <button onclick=\"abreIframe('".base_url('pasaid/'.$producto['id'])."')\" 
+                <button onclick=\"abreModal('".base_url('pasaid/'.$producto['id'])."')\" 
                 class=\"w3-button w3-green w3-border\">
                 <i class=\"fa-solid fa-pencil\"></i>
                 </button>
@@ -63,9 +60,9 @@ color: white;
     <div class="w3-modal-content w3-animate-top"
         style="width:60%; max-width:800px; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.3);">
       <header class="w3-container w3-green"style="border-radius:10px 10px 0 0;"> 
-        <span onclick="modalProducto('modalProducto')"
+        <span onclick="cierraModal('modalProducto')"
         class="w3-button w3-display-topright">&times;</span>
-        <h2 style="margin:0;">Editar producto</h2>
+        <h2 style="margin:0;">Agregar producto</h2>
       </header>
         <div class="w3-container" style="padding:20px;">
             <iframe id="iframecontenido"
@@ -73,12 +70,12 @@ color: white;
         </div>
       <footer class="w3-container w3-green"
          style="border-radius:0 0 10px 10px; text-align:right;">
-        <button class="w3-button w3-white" onclick="modalProducto('modalProducto')">Cerrar</button>
+        <button class="w3-button w3-white" onclick="cierraModal('modalProducto')">Cerrar</button>
     </footer>
     </div>
   </div>
 <script>
-    function abreIframe(idModal, url) {
+    function abreModal(idModal, url) {
         const modal = document.getElementById(idModal);
         // Buscamos el iframe que está dentro de ESE modal específico
         const iframe = modal.querySelector('iframe');

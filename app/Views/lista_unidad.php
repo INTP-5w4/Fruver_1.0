@@ -8,6 +8,10 @@
     <title>Lista de Unidades</title>
 </head>
 <body>
+    <button onclick="abreModal('modalUnidad', '<?= base_url('Crea_Unidad') ?>')" 
+        class="w3-button w3-green w3-round-xlarge">
+    Agregar unidad
+    </button>
     <table class="w3-table w3-bordered w3-striped w3-hoverable w3-card">
         <thead>
             <tr>
@@ -25,7 +29,7 @@
                 "</td><td>".$unidad['nombre'].
                 "</td><td>".$unidad['abreviacion']."</td>
                 <td>
-                <button onclick=\"abreIframe('".base_url('pasaidunidad/'.$unidad['id'])."')\" 
+                <button onclick=\"abreModal('EditUnidad','".base_url('pasaidunidad/'.$unidad['id'])."')\" 
                 class=\"w3-button w3-green w3-border\">
                 <i class=\"fa-solid fa-pencil\"></i>
                 </button>
@@ -39,42 +43,97 @@
             ?>
         </tbody>
     </table>
-    <div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top"
-        style="width:60%; max-width:800px; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.3);">
-      <header class="w3-container w3-green" style="border-radius:10px 10px 0 0;"> 
-        <span onclick="cierraIframe()"
-        class="w3-button w3-display-topright">&times;</span>
-        <h2 style="margin:0;">Editar unidad</h2>
-      </header>
-        <div class="w3-container" style="padding:20px;">
-            <iframe id="iframecontenido"
-            style="width:100%; height:450px; border:none;"></iframe>
+<div id="modalUnidad" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4" 
+         style="width:70%; max-width:850px; border-radius:15px; overflow:hidden; background-color: #fff;">
+        
+        <header class="w3-container w3-green" style="padding: 8px 20px; display: flex; justify-content: space-between; align-items: center;"> 
+            <h2 style="margin:0; font-size: 1.4rem; font-weight: 600;">Añadir unidad</h2>
+            <span onclick="cierraModal('modalUnidad')" 
+                  class="w3-button w3-display-topright w3-hover-red" 
+                  style="font-size: 1 rem; cursor: pointer;">&times;</span>
+        </header>
+
+        <div class="w3-container" style="padding: 15px;">
+            <iframe id="iframeAdd" 
+                    style="width:100%; height:500px; border:none; display:block;">
+            </iframe>
         </div>
-      <footer class="w3-container w3-green"
-         style="border-radius:0 0 10px 10px; text-align:right;">
-        <button class="w3-button w3-white" onclick="cierraIframe()">Cerrar</button>
-    </footer>
+
+        <footer class="w3-container w3-light-grey" 
+                style="padding: 10px 20px; text-align: right; border-top: 1px solid #ddd;">
+            <button class="w3-button w3-white w3-border w3-round-large" 
+                    onclick="cierraModal('modalUnidad')">Cancelar</button>
+        </footer>
     </div>
-  </div>
+</div>
+
+<style>
+    .w3-modal {
+        padding-top: 30px; /* Acercamos la modal al borde superior */
+        background-color: rgba(0,0,0,0.5); /* Fondo oscuro semitransparente */
+        backdrop-filter: blur(3px); /* Desenfoque de fondo moderno */
+    }
+</style>
+
+  <div id="EditUnidad" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4" 
+         style="width:70%; max-width:850px; border-radius:15px; overflow:hidden; background-color: #fff;">
+        
+        <header class="w3-container w3-green" style="padding: 8px 20px; display: flex; justify-content: space-between; align-items: center;"> 
+            <h2 style="margin:0; font-size: 1.4rem; font-weight: 600;">Editar Unidad</h2>
+            <span onclick="cierraModal('EditUnidad')"
+                  class="w3-button w3-display-topright w3-hover-red" 
+                  style="font-size: 1 rem; cursor: pointer;">&times;</span>
+        </header>
+
+        <div class="w3-container" style="padding: 15px;">
+            <iframe id="iframeAdd" 
+                    style="width:100%; height:500px; border:none; display:block;">
+            </iframe>
+        </div>
+
+        <footer class="w3-container w3-light-grey" 
+                style="padding: 10px 20px; text-align: right; border-top: 1px solid #ddd;">
+            <button class="w3-button w3-white w3-border w3-round-large" 
+                    onclick="cierraModal('EditUnidad')">Cancelar</button>
+        </footer>
+    </div>
+</div>
+<style>
+    .w3-modal {
+        padding-top: 30px; /* Acercamos la modal al borde superior */
+        background-color: rgba(0,0,0,0.5); /* Fondo oscuro semitransparente */
+        backdrop-filter: blur(3px); /* Desenfoque de fondo moderno */
+    }
+</style>
+
 <script>
-    const modal = document.getElementById('id01');
-    const iframe= document.getElementById('iframecontenido');
-    
-        function abreIframe(url){
-            iframe.src=url
-            modal.style.display="block";
+    function abreModal(idModal, url) {
+        const modal = document.getElementById(idModal);
+        // Buscamos el iframe que está dentro de ESE modal específico
+        const iframe = modal.querySelector('iframe');
+        
+        iframe.src = url;
+        modal.style.display = "block";
+    }
+
+    function cierraModal(idModal) {
+        const modal = document.getElementById(idModal);
+        const iframe = modal.querySelector('iframe');
+        
+        modal.style.display = "none";
+        iframe.src = "";
+    }
+
+    // Cerrar al hacer clic fuera
+    window.onclick = function(event) {
+        if (event.target.className === 'w3-modal') {
+            event.target.style.display = "none";
+            const iframe = event.target.querySelector('iframe');
+            if(iframe) iframe.src = "";
         }
-        function cierraIframe(){
-            modal.style.display="none";
-            iframe.src="";
-        }
-        window.onclick = function(event){
-            if(event.target == modal){
-            cierraIframe();
-            }
-        }    
+    }
 </script>
-    
 </body>
 </html>

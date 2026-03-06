@@ -56,42 +56,71 @@
         </tbody>
     </table>
 
-    <div id="modalCliente" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top"
-        style="width:60%; max-width:800px; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.3);">
-      <header class="w3-container w3-green"style="border-radius:10px 10px 0 0;"> 
-        <span onclick="cierraModal('modalCliente')"
-        class="w3-button w3-display-topright">&times;</span>
-        <h2 style="margin:0;">Añadir cliente</h2>
-      </header>
-        <div class="w3-container" style="padding:20px;">
-            <iframe id="iframeAdd"
-            style="width:100%; height:450px; border:none;"></iframe>
+<div id="modalCliente" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4" 
+         style="width:70%; max-width:850px; border-radius:15px; overflow:hidden; background-color: #fff;">
+        
+        <header class="w3-container w3-green" style="padding: 8px 20px; display: flex; justify-content: space-between; align-items: center;"> 
+            <h2 style="margin:0; font-size: 1.4rem; font-weight: 600;">Añadir nuevo cliente</h2>
+            <span onclick="cierraModal('modalCliente')" 
+                  class="w3-button w3-display-topright w3-hover-red" 
+                  style="font-size: 1 rem; cursor: pointer;">&times;</span>
+        </header>
+
+        <div class="w3-container" style="padding: 15px;">
+            <iframe id="iframeAdd" 
+                    style="width:100%; height:480px; border:none; display:block;">
+            </iframe>
         </div>
-      <footer class="w3-container w3-green"
-         style="border-radius:0 0 10px 10px; text-align:right;">
-        <button class="w3-button w3-white" onclick="cierraModal('modalCliente')">Cerrar</button>
-    </footer>
+
+        <footer class="w3-container w3-light-grey" 
+                style="padding: 10px 20px; text-align: right; border-top: 1px solid #ddd;">
+            <button class="w3-button w3-white w3-border w3-round-large" 
+                    onclick="cierraModal('modalCliente')">Cancelar</button>
+        </footer>
     </div>
-  </div>
-    <div id="EditCliente" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top"
-        style="width:60%; max-width:800px; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.3);">
-      <header class="w3-container w3-green"style="border-radius:10px 10px 0 0;"> 
-        <span onclick="cierraModal('EditCliente')"
-        class="w3-button w3-display-topright">&times;</span>
-        <h2 style="margin:0;">Editar cliente</h2>
-      </header>
-        <div class="w3-container" style="padding:20px;">
-            <iframe id="iframeEdit"
-            style="width:100%; height:450px; border:none;"></iframe>
+</div>
+
+<style>
+    .w3-modal {
+        padding-top: 30px; /* Acercamos la modal al borde superior */
+        background-color: rgba(0,0,0,0.5); /* Fondo oscuro semitransparente */
+        backdrop-filter: blur(3px); /* Desenfoque de fondo moderno */
+    }
+</style>
+<div id="EditCliente" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4" 
+         style="width:70%; max-width:850px; border-radius:15px; overflow:hidden; background-color: #fff;">
+        
+        <header class="w3-container w3-green" style="padding: 8px 20px; display: flex; justify-content: space-between; align-items: center;"> 
+            <h2 style="margin:0; font-size: 1.4rem; font-weight: 600;">Editar cliente</h2>
+            <span onclick="cierraModal('EditCliente')"
+                  class="w3-button w3-display-topright w3-hover-red" 
+                  style="font-size: 1 rem; cursor: pointer;">&times;</span>
+        </header>
+
+        <div class="w3-container" style="padding: 15px;">
+            <iframe id="iframeAdd" 
+                    style="width:100%; height:400px; border:none; display:block;">
+            </iframe>
         </div>
-      <footer class="w3-container w3-green"
-         style="border-radius:0 0 10px 10px; text-align:right;">
-        <button class="w3-button w3-white" onclick="cierraModal('EditCliente')">Cerrar</button>
-    </footer>
+
+        <footer class="w3-container w3-light-grey" 
+                style="padding: 10px 20px; text-align: right; border-top: 1px solid #ddd;">
+            <button class="w3-button w3-white w3-border w3-round-large" 
+                    onclick="cierraModal('EditCliente')">Cancelar</button>
+        </footer>
     </div>
-  </div>
+</div>
+
+<style>
+    .w3-modal {
+        padding-top: 30px; /* Acercamos la modal al borde superior */
+        background-color: rgba(0,0,0,0.5); /* Fondo oscuro semitransparente */
+        backdrop-filter: blur(3px); /* Desenfoque de fondo moderno */
+    }
+</style>
+
 <script>
     function abreModal(idModal, url) {
         const modal = document.getElementById(idModal);
