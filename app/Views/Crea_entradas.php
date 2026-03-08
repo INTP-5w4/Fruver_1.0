@@ -4,48 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Añade entradas</title>
+<style>
+        /* 1. Configuración Base */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            color: #1e293b;
+        }
+
+        /* 2. Contenedor Principal (Grid directo al form) */
+        #crearEntradas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 20px;
+        }
+
+        /* 3. Estilo de los Grupos de Input */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* 4. Etiquetas */
+        label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* 5. Inputs y Selects */
+        input[type="text"],
+        input[type="number"],
+        select {
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            outline: none;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+
+        input:focus, select:focus {
+            border-color: #10b981;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+        }
+
+        /* Campo de solo lectura (Fecha) */
+        input[readonly] {
+            background-color: #e2e8f0;
+            border-color: #cbd5e1;
+            color: #64748b;
+            cursor: not-allowed;
+        }
+
+        input[readonly]:focus {
+            box-shadow: none;
+            border-color: #cbd5e1;
+        }
+
+        /* 6. Botón Enviar */
+        input[type="submit"] {
+            grid-column: span 2;
+            background: #5bb982; /* Color principal unificado */
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        input[type="submit"]:hover {
+            background: #059669;
+        }
+
+        input[type="submit"]:active {
+            transform: scale(0.98);
+        }
+
+        /* 7. Responsive */
+        @media (max-width: 500px) {
+            #crearEntradas {
+                grid-template-columns: 1fr;
+            }
+            .full-width, input[type="submit"] {
+                grid-column: span 1;
+            }
+        }
+    </style>
 </head>
 <body>
     <form action="<?= base_url('Guardar_Entrada') ?>" method="post" id="crearEntradas">
+
+        <div class="form-group full-width">        
         <label>Registrado el:</label>
         <?php 
             date_default_timezone_set('America/Mexico_City'); 
             $fecha_mexico = date('Y-m-d H:i:s'); 
         ?>
-        <input name="fecha" value="<?=$fecha_mexico; ?>" readonly><br>
-        <label for="precioc">Precio de compra:</label>
-        <input type="number" name="precio_compra" placeholder="Inserte solo números"><br>
-        
-        <label for="preciov">Precio de venta:</label>
-        <input type="number" name="precio_venta" placeholder="Inserte solo números"><br>
-        
+        <input type="text" name="fecha" value="<?=$fecha_mexico; ?>" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="precioc">Precio de compra $:</label>
+            <input type="number" name="precio_compra" step="0.01" min="0" placeholder="0.00" required>
+        </div>
+
+        <div class="form-group">
+        <label for="preciov">Precio de venta $ :</label>
+        <input type="number" name="precio_venta" step="0.01" min="0" placeholder="0.00" required>
+        </div>
+
+        <div class="form-group">
         <label for="cantidad">Cantidad:</label>
-        <input type="number" name="cant" placeholder="Inserte solo números"><br>
-        
+        <input type="number" name="cant" min="1" placeholder="Ej. 10" required>
+        </div>
+
+        <div class="form-group">
        <label for="u_med">Unidad de Medida:</label>
             <select name="u_med" required>
-                 <option value="" Placeholder="Seleccione una opcion"></option>
+                 <option value="" disabled selected>Seleccione una opción</option>
                     <?php foreach($unidades as $u): ?>
                 <option value="<?= $u['id']; ?>">
                     <?= $u['nombre']; ?> </option>
                     <?php endforeach; ?>
-            </select><br>
+            </select>
+        </div>
 
+        <div class="form-group full-width">
             <label for="producto_asignado">Producto asignado:</label>
             <select name="prod_id" required>
-                 <option value="" Placeholder="Seleccione una opcion"></option>
+                 <option value="" disabled selected>Seleccione una opción</option>
                     <?php foreach($productos as $p): ?>
                 <option value="<?= $p['id']; ?>">
                     <?= $p['nombre']; ?> </option>
                     <?php endforeach; ?>
-            </select><br>
+            </select>
+        </div>
         
-
-
-
-
-
-
         <input type="submit" value="Enviar">
     </form>
     <script>
@@ -63,7 +174,7 @@ miForm.addEventListener('submit', (e) => {
     })
     .then(response => {
         // 3. Si todo salió bien, cerramos el modal en la ventana principal
-        window.parent.cierraModal('modalCliente'); // Llama a la función que tienes en la lista
+        window.parent.cierraModal('modalEntrada'); // Llama a la función que tienes en la lista
         window.parent.location.reload(); // Recarga la lista para ver los cambios
     })
     .catch(error => console.error('Error:', error));

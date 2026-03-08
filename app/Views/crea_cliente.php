@@ -64,19 +64,17 @@
 
         /* 6. Botón Enviar */
         input[type="submit"] {
-            grid-column: span 2; /* Ocupa las dos columnas */
-            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            grid-column: span 2;
+            background: #5bb982; /* Color principal unificado */
             color: white;
             padding: 14px;
             border: none;
             border-radius: 8px;
             font-size: 1rem;
-            font-weight: bold;
-            text-transform: uppercase;
+            font-weight: 600;
             cursor: pointer;
             margin-top: 10px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+            transition: background-color 0.2s, transform 0.1s;
         }
 
         input[type="submit"]:hover {
