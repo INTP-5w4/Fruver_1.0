@@ -7,54 +7,148 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
      <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <title>Lista de clientes</title>
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --slate-900: #0f172a;
+            --slate-600: #475569;
+            --slate-100: #f1f5f9;
+            --bg-page: #f8fafc;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        body {
+            background-color: var(--bg-page);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            padding: 30px;
+        }
+
+        .tableC {
+            background: white;
+            border-radius: 20px;
+            padding: 0;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.05);
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .custom-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+        }
+        .custom-table thead th {
+            background-color: #f1f3f5 !important;
+            color: #495057 !important;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 15px !important;
+            border-bottom: 2px solid #dee2e6 !important;
+        }
+        .custom-table tbody td {
+            padding: 12px 15px !important;
+            vertical-align: middle !important;
+            border-bottom: 1px solid #f2f2f2 !important;
+        }
+        .custom-table tbody tr:hover {
+            background-color: #f9fff9 !important;
+        }
+
+        .link-delete {
+            color: #d32f2f;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        .link-delete:hover {
+            transform: scale(1.2);
+            color: #b71c1c;
+        }
+
+        .w3-modal {
+            padding-top: 50px;
+            backdrop-filter: blur(4px);
+            background-color: rgba(0,0,0,0.4);
+        }
+        .w3-modal-content {
+            border-radius: 15px !important;
+            overflow: hidden;
+            border: none;
+        }
+        
+        iframe {
+            background-color: #fff;
+            border-radius: 0 0 15px 15px;
+        }
+    </style>
 </head>
 <body>
-    <button onclick="abreModal('modalCliente', '<?= base_url('crea_cliente') ?>')" 
-        class="w3-button w3-green w3-round-xlarge">
-    Agregar cliente
-    </button>
-    <table class="w3-table w3-bordered w3-striped w3-hoverable w3-card">
-        <thead class="thead-light">
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Calle</th>
-                <th>Colonia</th>
-                <th>Numero</th>
-                <th>Rfc</th>
-                <th>Tipo de cliente</th>
-                <th>Telefono</th>
-                <th>Tipo de credito</th>
-                <th>Editar</th>
-                <th>Borrar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($clientes as $cliente){
-            echo ("<tr><td>".$cliente['id'].
-            "</td><td>".$cliente['nombre'].
-            "</td><td>".$cliente['apellido'].
-            "</td><td>".$cliente['calle'].
-            "</td><td>".$cliente['colonia'].
-            "</td><td>".$cliente['numero'].
-            "</td><td>".$cliente['rfc'].
-            "</td><td>".$cliente['tipo_cliente'].
-            "</td><td>".$cliente['telefono'].
-            "</td><td>".$cliente['tipo_credito']."</td>
-            <td>
-            <button onclick=\"abreModal('EditCliente', '".base_url('pasoid/'.$cliente['id'])."')\" 
-            class=\"w3-button w3-green w3-border\">
-            <i class=\"fa-solid fa-pencil\"></i>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 style="font-weight: 700; color: #333;">Directorio De Clientes</h2>
+            <button onclick="abreModal('modalCliente', '<?= base_url('crea_cliente') ?>')" 
+                    class="w3-button w3-green w3-round-xlarge btn-add">
+                <i class="fa-solid fa-plus me-2"></i> Agregar Cliente
             </button>
-            </td>
-            
-            <td><a href='".base_url('borrarid/'.$cliente['id'])."'><i class='fa-solid fa-trash'></i></i></a></td>
-            </tr>");
-            } //<td><a href='".base_url('pasoid/'.$cliente['id'])."'><i class='fa-solid fa-pencil'></i></a></td>
-            ?>
-        </tbody>
-    </table>
+        </div>
+        <div class = "tableC">
+            <table class="w3-table custom-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Calle</th>
+                        <th>Colonia</th>
+                        <th>Numero</th>
+                        <th>Rfc</th>
+                        <th>Tipo de cliente</th>
+                        <th>Telefono</th>
+                        <th>Tipo de credito</th>
+                        <th class="text-center">Editar</th>
+                        <th class="text-center">Borrar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        foreach($clientes as $cliente): ?>
+                        <tr>
+                                <td><strong>#<?= $cliente['id'] ?></strong>
+                            </td><td><?= $cliente['nombre'] ?>
+                            </td><td><?= $cliente['apellido'] ?>
+                            </td><td><?= $cliente['calle'] ?>
+                            </td><td><?= $cliente['colonia'] ?>
+                            </td><td><?= $cliente['numero'] ?>
+                            </td><td><?= $cliente['rfc'] ?>
+                            </td><td><?= $cliente['tipo_cliente'] ?>
+                            </td><td><?= $cliente['telefono'] ?>
+                            </td><td><?= $cliente['tipo_credito'] ?>
+                                </td>
+
+                            <td class="text-center">
+                                <button onclick="abreModal('EditCliente', '<?= base_url('pasoid/'.$cliente['id']) ?>')"
+                                    class="w3-button w3-white w3-border w3-border-green w3-round-large">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </button>
+                            </td>
+                            
+                            <td class="text-center">
+                                <a href="<?=base_url('borrarid/'.$cliente['id']) ?>"
+                                class="link-delete"
+                                    onclick="return confirm('¿Estás seguro de eliminar esta entrada?')"
+                                ><i class='fa-solid fa-trash-can'></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 <div id="modalCliente" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4" 
