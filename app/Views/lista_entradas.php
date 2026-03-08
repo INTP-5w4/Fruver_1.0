@@ -50,16 +50,28 @@
             font-weight: 700;
             padding: 15px !important;
             border-bottom: 2px solid #dee2e6 !important;
+            white-space: nowrap;
+        }
+
+        .custom-table thead th i{
+            margin-left:6px;
+            vertical-align:middle;
         }
         .custom-table tbody td {
             padding: 12px 15px !important;
             vertical-align: middle !important;
             border-bottom: 1px solid #f2f2f2 !important;
         }
-        .custom-table tbody tr:hover {
-            background-color: #f9fff9 !important;
+        .custom-table tbody tr{
+            transition: all 0.25s ease;
         }
 
+        .custom-table tbody tr:hover{
+            background-color: #f0fdf4; /* verde muy claro */
+            transform: scale(1.01);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            cursor: pointer;
+        }
         .link-delete {
             color: #d32f2f;
             font-size: 1.1rem;

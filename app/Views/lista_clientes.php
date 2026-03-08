@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
      <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Lista de clientes</title>
     <style>
         :root {
@@ -48,16 +49,28 @@
             font-weight: 700;
             padding: 15px !important;
             border-bottom: 2px solid #dee2e6 !important;
+            white-space: nowrap;
+        }
+
+        .custom-table thead th i{
+            margin-left:6px;
+            vertical-align:middle;
         }
         .custom-table tbody td {
             padding: 12px 15px !important;
             vertical-align: middle !important;
             border-bottom: 1px solid #f2f2f2 !important;
         }
-        .custom-table tbody tr:hover {
-            background-color: #f9fff9 !important;
+        .custom-table tbody tr{
+            transition: all 0.25s ease;
         }
 
+        .custom-table tbody tr:hover{
+            background-color: #f0fdf4; /* verde muy claro */
+            transform: scale(1.01);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            cursor: pointer;
+        }
         .link-delete {
             color: #d32f2f;
             font-size: 1.1rem;
@@ -84,15 +97,19 @@
             background-color: #fff;
             border-radius: 0 0 15px 15px;
         }
+        
     </style>
 </head>
 <body>
     <div class="container-fluid">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 style="font-weight: 700; color: #333;">Directorio De Clientes</h2>
+            
+            <h2 style="font-weight: 700; color: #333;">
+            <i class="bi bi-people-fill"></i> Directorio De Clientes</h2>
+            
             <button onclick="abreModal('modalCliente', '<?= base_url('crea_cliente') ?>')" 
                     class="w3-button w3-green w3-round-xlarge btn-add">
-                <i class="fa-solid fa-plus me-2"></i> Agregar Cliente
+                <i class="bi bi-person-fill-add"></i> Agregar Cliente
             </button>
         </div>
         <div class = "tableC">
@@ -100,15 +117,15 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Calle</th>
-                        <th>Colonia</th>
-                        <th>Numero</th>
-                        <th>Rfc</th>
-                        <th>Tipo de cliente</th>
-                        <th>Telefono</th>
-                        <th>Tipo de credito</th>
+                        <th>Nombre <i class="bi bi-person-bounding-box"></i></th>
+                        <th>Apellido <i class="bi bi-person-bounding-box"></i></th>
+                        <th>Calle <i class="bi bi-geo-alt"></i></th>
+                        <th>Colonia <i class="bi bi-geo-alt"></i></th>
+                        <th>Numero <i class="bi bi-house-door"></i></th>
+                        <th>Rfc <i class="bi bi-person-vcard"></i></th>
+                        <th>Tipo de cliente <i class="bi bi-person-square"></i></th>
+                        <th>Telefono <i class="bi bi-telephone-fill"></i></th>
+                        <th>Tipo de credito <i class="bi bi-credit-card-2-front-fill"></i></th>
                         <th class="text-center">Editar</th>
                         <th class="text-center">Borrar</th>
                     </tr>
@@ -118,7 +135,7 @@
                         foreach($clientes as $cliente): ?>
                         <tr>
                                 <td><strong>#<?= $cliente['id'] ?></strong>
-                            </td><td><?= $cliente['nombre'] ?>
+                            </td><td><i class="bi bi-person-circle"></i> <?= $cliente['nombre'] ?>
                             </td><td><?= $cliente['apellido'] ?>
                             </td><td><?= $cliente['calle'] ?>
                             </td><td><?= $cliente['colonia'] ?>
@@ -158,7 +175,7 @@
             <h2 style="margin:0; font-size: 1.4rem; font-weight: 600;">Añadir nuevo cliente</h2>
             <span onclick="cierraModal('modalCliente')" 
                   class="w3-button w3-display-topright w3-hover-red" 
-                  style="font-size: 1 rem; cursor: pointer;">&times;</span>
+                  style="font-size: 1rem; cursor: pointer;">&times;</span>
         </header>
 
         <div class="w3-container" style="padding: 15px;">
