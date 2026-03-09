@@ -9,38 +9,48 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <title>Lista de productos</title>
     <style>
-        :root {
-            --primary: #10b981;
+        :root { /*Representa el elemento raíz del documento, que en HTML es <html>*/
+            --primary: #10b981; /*Variable de color Guarda un color verde*/
             --primary-dark: #059669;
             --slate-900: #0f172a;
             --slate-600: #475569;
             --slate-100: #f1f5f9;
             --bg-page: #f8fafc;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); 
+            /*Esta variable guarda una sombra para elementos
+            0        → desplazamiento horizontal
+            10px     → desplazamiento vertical
+            15px     → difuminado de la sombra
+            -3px     → expansión de la sombra
+            rgba()   → color negro con transparencia*/
+            --transition: all 0.3s ease; /*Define una animacion suave para cambios de estilo*/
         }
-        body {
-            background-color: var(--bg-page);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            padding: 30px;
+        body { /*contiene todo lo visible de la pagina*/
+            background-color: var(--bg-page); /*propiedad que cambia el fondo llama a una variable de color*/
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /*Define la tipografia del sitio*/
+            padding: 30px; /*agrega espacio interno dentro del body*/
         }
 
-        .tableC {
-            background: white;
-            border-radius: 20px;
-            padding: 0;
+        .tableC { /*se aplica a cualquier elemneto <div class= tableC>*/
+            background: white; /*Define el color del fondo del contenedor*/
+            border-radius: 20px; /*redondea las esquinas del contenedor*/
+            padding: 0;/*sin espacios entre el borde y el contenedor*/
             box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.05);
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05); 
+            /*1px → grosor del borde
+            solid → tipo de línea
+            rgba(0,0,0,0.05) → negro con 5% de opacidad*/
+            max-width: 1200px; /*el contenedor no puede crecer mas de 1200px*/
+            margin: 0 auto; /*controla los margenes internos arriba, abajo, izquierda, derecha, auto: centra el contenedor horizontalmente*/
+            max-height:450px; /*Define la altura máxima del contenedor.*/
+            overflow-y:auto; /*controla el scroll horizontal solo aparece si se supera a altura*/
+            overflow-x:auto; /*controla el scroll vertical solo aparece si se supera a altura*/
         }
 
-        /* Estilos de la Tabla */
-        .custom-table {
-            border-collapse: separate;
-            border-spacing: 0;
-            width: 100%;
+        .custom-table { /* Estilos de la Tabla */
+            border-collapse: separate; /*controla como aparecen los bordes*/
+            border-spacing: 0; /*espacio entre las celdas de la tabla*/
+            width: 100%; /*ancho de la tabla*/
         }
         .custom-table thead th {
             background-color: #f1f3f5 !important;
@@ -51,7 +61,12 @@
             padding: 15px !important;
             border-bottom: 2px solid #dee2e6 !important;
             white-space: nowrap;
-        }
+            position: sticky;
+            top: 0;
+            background: #f1f3f5;
+            z-index: 1;
+            }
+
 
         .custom-table thead th i{
             margin-left:6px;
@@ -201,7 +216,7 @@
 
         <div class="w3-container" style="padding: 15px;">
             <iframe id="iframeAdd" 
-                    style="width:100%; height:400px; border:none; display:block;">
+                    style="width:100%; height:410px; border:none; display:block;">
             </iframe>
         </div>
 

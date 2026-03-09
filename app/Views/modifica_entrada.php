@@ -42,9 +42,7 @@
         }
 
         /* 5. Inputs y Selects */
-        input[type="text"],
-        input[type="number"],
-        select {
+        input,select {
             padding: 10px 12px;
             border: 1px solid #cbd5e1;
             border-radius: 8px;
