@@ -58,18 +58,18 @@
         background-color: #f9fff9;
     }
 
-    /* 5. Botón de Acción */
+    /* 6. Botón Enviar */
     input[type="submit"] {
-        background-color: #4CAF50;
+        background: #5bb982; /* Color principal unificado */
         color: white;
-        padding: 10px;
+        padding: 14px;
         border: none;
-        border-radius: 4px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
         cursor: pointer;
-        font-size: 15px;
-        font-weight: bold;
         margin-top: 10px;
-        transition: background-color 0.2s;
+        transition: background-color 0.2s, transform 0.1s;
     }
 
     input[type="submit"]:hover {
@@ -135,26 +135,25 @@
 
     <input type="submit" value="Guardar Cambios">
 </form>
-    <script>
-const miForm = document.getElementById('EditCliente');
-miForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Detenemos el envío normal
+<script>
+    const miForm = document.getElementById('EditCliente');
+    miForm.addEventListener('submit', (e) => {
+        e.preventDefault(); 
 
-    // 1. Recolectamos los datos del formulario
-    const formData = new FormData(miForm);
+        
+        const formData = new FormData(miForm);
 
-    // 2. Los enviamos al servidor
-    fetch(miForm.action, {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => {
-        // 3. Si todo salió bien, cerramos el modal en la ventana principal
-        window.parent.cierraModal('EditCliente'); // Llama a la función que tienes en la lista
-        window.parent.location.reload(); // Recarga la lista para ver los cambios
-    })
-    .catch(error => console.error('Error:', error));
-});
-    </script>
+        fetch(miForm.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+        
+            window.parent.cierraModal('EditCliente'); 
+            window.parent.location.reload(); 
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
 </body>
 </html>
