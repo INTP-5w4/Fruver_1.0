@@ -5,63 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifica repartidor</title>
 <style>
-body{
-    font-family:'Segoe UI',Roboto,Arial,sans-serif;
-    margin:0;
-    padding:20px;
-    background:#fff;
-    color:#333;
-}
+    body{
+        font-family:'Segoe UI',Roboto,Arial,sans-serif;
+        margin:0;
+        padding:20px;
+        background: #fff;
+        color: #333;
+    }
 
-#EditRepartidor{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px 20px;
-}
+    #EditRepartidor{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:15px 20px;
+    }
 
-.form-group{
-    display:flex;
-    flex-direction:column;
-}
+    .form-group{
+        display:flex;
+        flex-direction:column;
+    }
 
-.full-width{
-    grid-column:span 2;
-}
+    .full-width{
+        grid-column:span 2;
+    }
 
-label{
-    font-size:.85rem;
-    font-weight:600;
-    color:#555;
-    margin-bottom:5px;
-}
+    label{
+        font-size:.85rem;
+        font-weight:600;
+        color: #555;
+        margin-bottom:5px;
+    }
 
-input,select{
-    padding:10px 12px;
-    border:2px solid #e1e1e1;
-    border-radius:8px;
-    background:#f9f9f9;
-    transition:.3s;
-}
+    input,select{
+        padding:10px 12px;
+        border:2px solid #e1e1e1;
+        border-radius:8px;
+        background: #f9f9f9;
+        transition:.3s;
+    }
 
-input:focus,select:focus{
-    border-color:#4CAF50;
-    background:#fff;
-}
+    input:focus, select:focus {
+        outline: none;
+        border-color: #4CAF50;
+        background-color: #f9fff9;
+    }
 
-input[type="submit"]{
-    grid-column:span 2;
-    background:#5bb982;
-    color:white;
-    border:none;
-    padding:14px;
-    border-radius:8px;
-    cursor:pointer;
-}
+    input[type="submit"]{
+        grid-column:span 2;
+        background: #5bb982;
+        color:white;
+        border:none;
+        padding:14px;
+        border-radius:8px;
+        cursor:pointer;
+    }
 
-input[type="submit"]:hover{
-    transform:translateY(-2px);
-}
-    </style>
+    input[type="submit"]:hover {
+        background-color: #388E3C;
+    }
+</style>
 </head>
 <body>
      <form action="<?= base_url('modifica_repartidor') ?>" method="post" id="EditRepartidor">

@@ -7,114 +7,9 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="<?= base_url('Estilos/style_lista.css') ?>">
     <title>Lista de productos</title>
-    <style>
-        :root { /*Representa el elemento raíz del documento, que en HTML es <html>*/
-            --primary: #10b981; /*Variable de color Guarda un color verde*/
-            --primary-dark: #059669;
-            --slate-900: #0f172a;
-            --slate-600: #475569;
-            --slate-100: #f1f5f9;
-            --bg-page: #f8fafc;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); 
-            /*Esta variable guarda una sombra para elementos
-            0        → desplazamiento horizontal
-            10px     → desplazamiento vertical
-            15px     → difuminado de la sombra
-            -3px     → expansión de la sombra
-            rgba()   → color negro con transparencia*/
-            --transition: all 0.3s ease; /*Define una animacion suave para cambios de estilo*/
-        }
-        body { /*contiene todo lo visible de la pagina*/
-            background-color: var(--bg-page); /*propiedad que cambia el fondo llama a una variable de color*/
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /*Define la tipografia del sitio*/
-            padding: 30px; /*agrega espacio interno dentro del body*/
-        }
 
-        .tableC { /*se aplica a cualquier elemneto <div class= tableC>*/
-            background: white; /*Define el color del fondo del contenedor*/
-            border-radius: 20px; /*redondea las esquinas del contenedor*/
-            padding: 0;/*sin espacios entre el borde y el contenedor*/
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.05); 
-            /*1px → grosor del borde
-            solid → tipo de línea
-            rgba(0,0,0,0.05) → negro con 5% de opacidad*/
-            max-width: 1200px; /*el contenedor no puede crecer mas de 1200px*/
-            margin: 0 auto; /*controla los margenes internos arriba, abajo, izquierda, derecha, auto: centra el contenedor horizontalmente*/
-            max-height:450px; /*Define la altura máxima del contenedor.*/
-            overflow-y:auto; /*controla el scroll horizontal solo aparece si se supera a altura*/
-            overflow-x:auto; /*controla el scroll vertical solo aparece si se supera a altura*/
-        }
-
-        .custom-table { /* Estilos de la Tabla */
-            border-collapse: separate; /*controla como aparecen los bordes*/
-            border-spacing: 0; /*espacio entre las celdas de la tabla*/
-            width: 100%; /*ancho de la tabla*/
-        }
-        .custom-table thead th {
-            background-color: #f1f3f5 !important;
-            color: #495057 !important;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 15px !important;
-            border-bottom: 2px solid #dee2e6 !important;
-            white-space: nowrap;
-            position: sticky;
-            top: 0;
-            background: #f1f3f5;
-            z-index: 1;
-            }
-
-
-        .custom-table thead th i{
-            margin-left:6px;
-            vertical-align:middle;
-        }
-        .custom-table tbody td {
-            padding: 12px 15px !important;
-            vertical-align: middle !important;
-            border-bottom: 1px solid #f2f2f2 !important;
-        }
-        .custom-table tbody tr{
-            transition: all 0.25s ease;
-        }
-
-        .custom-table tbody tr:hover{
-            background-color: #f0fdf4; /* verde muy claro */
-            transform: scale(1.01);
-            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-            cursor: pointer;
-        }
-        .link-delete {
-            color: #d32f2f;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            display: inline-block;
-        }
-        .link-delete:hover {
-            transform: scale(1.2);
-            color: #b71c1c;
-        }
-
-        .w3-modal {
-            padding-top: 50px;
-            backdrop-filter: blur(4px);
-            background-color: rgba(0,0,0,0.4);
-        }
-        .w3-modal-content {
-            border-radius: 15px !important;
-            overflow: hidden;
-            border: none;
-        }
-        
-        iframe {
-            background-color: #fff;
-            border-radius: 0 0 15px 15px;
-        }
-    </style>
-</head>
 <body>
     <div class="container-fluid">
         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -152,10 +47,10 @@
                         </td><td><?= $entrada['unidad_medida_id'] ?> </td>
 
                         <td class="text-center">
-                       <button onclick="abreModal('EditEntrada', '<?= base_url('pasaid_entrada/'.$entrada['id']) ?>')"
-                        class="w3-button w3-white w3-border w3-border-green w3-round-large">
-                        <i class="fa-solid fa-pencil"></i>
-                        </button>
+                            <button onclick="abreModal('EditEntrada', '<?= base_url('pasaid_entrada/'.$entrada['id']) ?>')"
+                                class="w3-button w3-white w3-border w3-border-green w3-round-large">
+                                <i class="fa-solid fa-pencil"></i>
+                            </button>
                         </td>
                         <td class="text-center">
                             <a href="<?= base_url('borraid_entrada/'.$entrada['id']) ?>"

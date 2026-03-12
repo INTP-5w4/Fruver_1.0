@@ -78,7 +78,7 @@
 </style>
 </head>
 <body>
-    <form action="<?= base_url('edita_cliente') ?>" method="post" id="EditCliente">
+    <form action="<?= base_url('edita_cliente') ?>" method="post" id="EditCliente" class="form-grid">
     <input type="hidden" name="id" value="<?=esc($clientes['id'])?>">
 
     <div class="form-row">

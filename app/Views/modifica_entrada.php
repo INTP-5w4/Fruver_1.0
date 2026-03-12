@@ -3,111 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?= base_url('Estilos/style_modifica.css') ?>">
     <title>Document Title</title>
-<style>
-        /* 1. Configuración Base */
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            margin: 0;
-            padding: 20px;
-            color: #1e293b;
-        }
-
-        /* 2. Contenedor Principal (Grid directo al form) */
-        #EditEntrada {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px 20px;
-        }
-
-        /* 3. Estilo de los Grupos de Input */
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .full-width {
-            grid-column: span 2;
-        }
-
-        /* 4. Etiquetas */
-        label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #475569;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* 5. Inputs y Selects */
-        input,select {
-            padding: 10px 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            outline: none;
-            background-color: #f8fafc;
-            color: #334155;
-        }
-
-        input:focus, select:focus {
-            border-color: #10b981;
-            background-color: #ffffff;
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
-        }
-
-        /* Campo de solo lectura (Fecha) */
-        input[readonly] {
-            background-color: #e2e8f0;
-            border-color: #cbd5e1;
-            color: #64748b;
-            cursor: not-allowed;
-        }
-
-        input[readonly]:focus {
-            box-shadow: none;
-            border-color: #cbd5e1;
-        }
-
-        /* 6. Botón Enviar */
-        input[type="submit"] {
-            grid-column: span 2;
-            background: #5bb982; /* Color principal unificado */
-            color: white;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-
-        input[type="submit"]:hover {
-            background: #059669;
-        }
-
-        input[type="submit"]:active {
-            transform: scale(0.98);
-        }
-
-        /* 7. Responsive */
-        @media (max-width: 500px) {
-            #EditEntrada {
-                grid-template-columns: 1fr;
-            }
-            .full-width, input[type="submit"] {
-                grid-column: span 1;
-            }
-        }
-    </style>
 </head>
 <body>
-    <form action="<?= base_url('modifica_Entrada') ?>" method="post" id=EditEntrada>
+    <form action="<?= base_url('modifica_Entrada') ?>" method="post" id=EditEntrada class="form-grid">
     <input type="hidden" name="id" value="<?=esc($entradas['id'])?>" require>  
 
     <div class="form-group full-width"> 

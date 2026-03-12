@@ -43,10 +43,12 @@ input,select{
     transition:.3s;
 }
 
-input:focus,select:focus{
-    border-color:#4CAF50;
-    background:#fff;
+input:focus, select:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background-color: #f9fff9;
 }
+
 
 input[type="submit"]{
     grid-column:span 2;
