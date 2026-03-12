@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Añadir cliente</title>
 <style>
-        /* 1. Configuración Base */
+
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
@@ -14,26 +14,22 @@
             color: #333;
         }
 
-        /* 2. Contenedor Principal (Grid) */
         #crearCliente {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Crea 2 columnas iguales */
-            gap: 15px 20px; /* Espacio entre campos (vertical y horizontal) */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 20px; 
             max-width: 100%;
         }
 
-        /* 3. Estilo de los Grupos de Input */
         .form-group {
             display: flex;
             flex-direction: column;
         }
 
-        /* Campos que deben ocupar todo el ancho (como Calle o el Botón) */
         .full-width {
             grid-column: span 2;
         }
 
-        /* 4. Etiquetas (Labels) */
         label {
             font-size: 0.85rem;
             font-weight: 600;
@@ -43,7 +39,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* 5. Inputs y Selects */
         input[type="text"],
         input[type="tel"],
         select {
@@ -62,10 +57,9 @@
             box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
         }
 
-        /* 6. Botón Enviar */
         input[type="submit"] {
             grid-column: span 2;
-            background: #5bb982; /* Color principal unificado */
+            background: #5bb982; 
             color: white;
             padding: 14px;
             border: none;
@@ -86,7 +80,6 @@
             transform: translateY(0);
         }
 
-        /* 7. Responsive (Si la modal es muy pequeña, usa 1 columna) */
         @media (max-width: 500px) {
             #crearCliente {
                 grid-template-columns: 1fr;
@@ -156,20 +149,20 @@
                 <script>
 const miForm = document.getElementById('crearCliente');
 miForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Detenemos el envío normal
+    e.preventDefault(); 
 
-    // 1. Recolectamos los datos del formulario
+
     const formData = new FormData(miForm);
 
-    // 2. Los enviamos al servidor
+
     fetch(miForm.action, {
         method: 'POST',
         body: formData
     })
     .then(response => {
-        // 3. Si todo salió bien, cerramos el modal en la ventana principal
-        window.parent.cierraModal('modalCliente'); // Llama a la función que tienes en la lista
-        window.parent.location.reload(); // Recarga la lista para ver los cambios
+ 
+        window.parent.cierraModal('modalCliente'); 
+        window.parent.location.reload();
     })
     .catch(error => console.error('Error:', error));
 });

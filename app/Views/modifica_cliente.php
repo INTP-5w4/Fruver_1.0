@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Title</title>
     <style>
-    /* 1. Elimina la barra de desplazamiento y ajusta el fondo */
+
     html, body {
         overflow: hidden; 
         background-color: #ffffff;
@@ -14,15 +14,13 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    /* 2. Estructura del Formulario */
     #EditCliente {
         display: flex;
         flex-direction: column;
-        gap: 8px; /* Espaciado uniforme entre elementos */
+        gap: 8px;
         max-width: 100%;
     }
 
-    /* 3. Filas de dos columnas */
     .form-row {
         display: flex;
         gap: 12px;
@@ -34,7 +32,6 @@
         flex-direction: column;
     }
 
-    /* 4. Estilos de Etiquetas e Inputs */
     label {
         font-size: 13px;
         font-weight: 600;
@@ -58,9 +55,8 @@
         background-color: #f9fff9;
     }
 
-    /* 6. Botón Enviar */
     input[type="submit"] {
-        background: #5bb982; /* Color principal unificado */
+        background: #5bb982; 
         color: white;
         padding: 14px;
         border: none;

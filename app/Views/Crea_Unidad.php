@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= base_url('Estilos/style-') ?>">
+    <link rel="stylesheet" href="<?= base_url('Estilos/style_crea.css') ?>">
     <title>Crear Unidad</title>
 </head>
 
@@ -37,7 +37,7 @@
                 body: formData
             })
             .then(response => {
-                // Cambia 'modalUnidad' por el ID real que usas en tu lista principal
+
                 window.parent.cierraModal('crearUnidad'); 
                 window.parent.location.reload(); 
             })

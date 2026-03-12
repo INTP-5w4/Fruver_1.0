@@ -73,7 +73,7 @@
 
         <div class="w3-container" style="padding: 15px;">
             <iframe id="iframeAdd" 
-                    style="width:100%; height:240px; border:none; display:block;">
+                    style="width:100%; height:260px; border:none; display:block;">
             </iframe>
         </div>
 

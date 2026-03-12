@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Añade entradas</title>
 <style>
-        /* 1. Configuración Base */
+
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
@@ -14,14 +14,12 @@
             color: #1e293b;
         }
 
-        /* 2. Contenedor Principal (Grid directo al form) */
         #crearEntradas {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px 20px;
         }
 
-        /* 3. Estilo de los Grupos de Input */
         .form-group {
             display: flex;
             flex-direction: column;
@@ -31,7 +29,6 @@
             grid-column: span 2;
         }
 
-        /* 4. Etiquetas */
         label {
             font-size: 0.8rem;
             font-weight: 600;
@@ -41,7 +38,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* 5. Inputs y Selects */
         input[type="text"],
         input[type="number"],
         select {
@@ -61,7 +57,6 @@
             box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
         }
 
-        /* Campo de solo lectura (Fecha) */
         input[readonly] {
             background-color: #e2e8f0;
             border-color: #cbd5e1;
@@ -74,10 +69,9 @@
             border-color: #cbd5e1;
         }
 
-        /* 6. Botón Enviar */
         input[type="submit"] {
             grid-column: span 2;
-            background: #5bb982; /* Color principal unificado */
+            background: #5bb982; 
             color: white;
             padding: 14px;
             border: none;
@@ -97,7 +91,6 @@
             transform: scale(0.98);
         }
 
-        /* 7. Responsive */
         @media (max-width: 500px) {
             #crearEntradas {
                 grid-template-columns: 1fr;
@@ -160,25 +153,23 @@
         <input type="submit" value="Enviar">
     </form>
     <script>
-const miForm = document.getElementById('crearEntradas');
-miForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Detenemos el envío normal
+        const miForm = document.getElementById('crearEntradas');
+        miForm.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+        
+            const formData = new FormData(miForm);
 
-    // 1. Recolectamos los datos del formulario
-    const formData = new FormData(miForm);
-
-    // 2. Los enviamos al servidor
-    fetch(miForm.action, {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => {
-        // 3. Si todo salió bien, cerramos el modal en la ventana principal
-        window.parent.cierraModal('modalEntrada'); // Llama a la función que tienes en la lista
-        window.parent.location.reload(); // Recarga la lista para ver los cambios
-    })
-    .catch(error => console.error('Error:', error));
-});
+            fetch(miForm.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+        
+                window.parent.cierraModal('modalEntrada'); 
+                window.parent.location.reload(); 
+            })
+            .catch(error => console.error('Error:', error));
+        });
     </script>
 </body>
 </html>

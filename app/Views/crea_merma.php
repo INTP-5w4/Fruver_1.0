@@ -39,5 +39,25 @@
 
          <input type="submit" value="Enviar">
     </form>
+    <script>
+        const miForm = document.getElementById('creaMerma');
+        miForm.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+        
+            const formData = new FormData(miForm);
+
+            fetch(miForm.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+        
+                window.parent.cierraModal('modalMerma'); 
+                window.parent.location.reload(); 
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
 </html>
+

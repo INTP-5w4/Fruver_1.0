@@ -79,7 +79,7 @@
 
         <div class="w3-container" style="padding: 15px;">
             <iframe id="iframeAdd" 
-                    style="width:100%; height:480px; border:none; display:block;">
+                    style="width:100%; height:350px; border:none; display:block;">
             </iframe>
         </div>
 
@@ -118,16 +118,16 @@
 
 <style>
     .w3-modal {
-        padding-top: 30px; /* Acercamos la modal al borde superior */
-        background-color: rgba(0,0,0,0.5); /* Fondo oscuro semitransparente */
-        backdrop-filter: blur(3px); /* Desenfoque de fondo moderno */
+        padding-top: 30px; 
+        background-color: rgba(0,0,0,0.5);
+        backdrop-filter: blur(3px); 
     }
 </style>
 
 <script>
     function abreModal(idModal, url) {
         const modal = document.getElementById(idModal);
-        // Buscamos el iframe que está dentro de ESE modal específico
+       
         const iframe = modal.querySelector('iframe');
         
         iframe.src = url;
@@ -142,7 +142,6 @@
         iframe.src = "";
     }
 
-    // Cerrar al hacer clic fuera
     window.onclick = function(event) {
         if (event.target.className === 'w3-modal') {
             event.target.style.display = "none";

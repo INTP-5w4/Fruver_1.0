@@ -130,7 +130,6 @@
             iframe.src = "";
         }
 
-        // Cerrar al hacer clic fuera del modal
         window.onclick = function(event) {
             if (event.target.className === 'w3-modal') {
                 event.target.style.display = "none";
