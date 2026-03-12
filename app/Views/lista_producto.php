@@ -3,107 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= base_url('lista_producto.css') ?>">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="<?= base_url('Estilos/style_lista.css') ?>">
     <title>Lista de productos</title>
-    <style>#mas1{
-width: 40px;
-height: 40px;
-border: none;
-border-radius: 40px;
-background-color: rgba(0, 122, 10, 0.822);
-color: white;
-}</style>
 </head>
 <body>
-    <button onclick="abreIframe('modalProducto', '<?= base_url('crea_producto') ?>')" 
-        class="w3-button w3-green w3-round-xlarge">
-    Agregar producto
-    </button>
-    <a href="<?= base_url('crea_producto') ?>"><button class="mas" id="mas1">
-        <i class="fa-solid fa-plus"></i>
-    </button></a>
-    <table>
-        <table class="w3-table w3-bordered w3-striped w3-hoverable w3-card">
-        <thead>
-            <tr>
-                <td>ID</td>
-                <td>Nombre</td>
-                <td>Unidad de medida</td>
-                <td>Descripción</td>
-                <td>Editar</td>
-                <td>Borrar</td>
-            </tr>
-        </thead>
-        <tbody>
-             <?php
-             foreach ($productos as $producto){
-            echo ("<tr><td>".$producto['id'].
-                "</td><td>".$producto['nombre'].
-                "</td><td>".$producto['id_unidad_medida'].
-                "</td><td>".$producto['descripcion']."</td>
-                <td>
-                <button onclick=\"abreIframe('".base_url('pasaid/'.$producto['id'])."')\" 
-                class=\"w3-button w3-green w3-border\">
-                <i class=\"fa-solid fa-pencil\"></i>
-                </button>
-                </td>
-                                
-                <td><a href='".base_url('borraid/'.$producto['id'])."'><i class='fa-solid fa-trash-can'></i></a></td>
-                </tr>");
-            } //<td><a href='".base_url('pasaid/'.$producto['id'])."'><i class='fa-solid fa-pencil'></i></a></td>
-            ?>
-        </tbody>
-    </table>
-    
-
-    <div id="modalProducto" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top"
-        style="width:60%; max-width:800px; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.3);">
-      <header class="w3-container w3-green"style="border-radius:10px 10px 0 0;"> 
-        <span onclick="modalProducto('modalProducto')"
-        class="w3-button w3-display-topright">&times;</span>
-        <h2 style="margin:0;">Editar producto</h2>
-      </header>
-        <div class="w3-container" style="padding:20px;">
-            <iframe id="iframecontenido"
-            style="width:100%; height:450px; border:none;"></iframe>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            
+            <h2 style="font-weight: 700; color: #333;">
+            <i class="bi bi-box-seam"></i> Registro De Productos</h2>
+            
+            <button onclick="abreModal('modalProducto', '<?= base_url('crea_producto') ?>')" 
+                    class="w3-button w3-green w3-round-xlarge btn-add">
+                <i class="bi bi-plus-square"></i> Agregar Producto
+            </button>
         </div>
-      <footer class="w3-container w3-green"
-         style="border-radius:0 0 10px 10px; text-align:right;">
-        <button class="w3-button w3-white" onclick="modalProducto('modalProducto')">Cerrar</button>
-    </footer>
+        <div class = "tableC">
+            <table class="w3-table custom-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th><i class="bi bi-person-bounding-box"></i> Nombre</th>
+                        <th>Unidad de medida</th>
+                        <th><i class="bi bi-text-paragraph"></i> Descripción</th>
+                        <th>Editar</th>
+                        <th>Borrar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach ($productos as $producto):?>
+                        <tr>
+                            <td><?= $producto['id']?></td>
+                            <td><?= $producto['nombre']?></td>
+                            <td><?= $producto['id_unidad_medida']?></td>
+                            <td><?= $producto['descripcion']?></td>
+                            
+                            <td class="text-center">
+                                <button onclick="abreModal('EditProducto', '<?= base_url('pasaid/'.$producto['id']) ?>')"
+                                    class="w3-button w3-white w3-border w3-border-green w3-round-large">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </button>
+                            </td>
+                            
+                            <td class="text-center">
+                                <a href="<?=base_url('borrarid/'.$producto['id']) ?>"
+                                class="link-delete"
+                                    onclick="return confirm('¿Estás seguro de eliminar esta entrada?')"
+                                ><i class='fa-solid fa-trash-can'></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
-<script>
-    function abreIframe(idModal, url) {
-        const modal = document.getElementById(idModal);
-        // Buscamos el iframe que está dentro de ESE modal específico
-        const iframe = modal.querySelector('iframe');
-        
-        iframe.src = url;
-        modal.style.display = "block";
-    }
 
-    function cierraModal(idModal) {
-        const modal = document.getElementById(idModal);
-        const iframe = modal.querySelector('iframe');
+<div id="modalProducto" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4" 
+         style="width:70%; max-width:850px; border-radius:15px; overflow:hidden; background-color: #fff;">
         
-        modal.style.display = "none";
-        iframe.src = "";
-    }
+        <header class="w3-container w3-green" style="padding: 8px 20px; display: flex; justify-content: space-between; align-items: center;"> 
+            <h2 style="margin:0; font-size: 1.4rem; font-weight: 600;">Añadir Producto</h2>
+            <span onclick="cierraModal('modalProducto')" 
+                  class="w3-button w3-display-topright w3-hover-red" 
+                  style="font-size: 1rem; cursor: pointer;">&times;</span>
+        </header>
 
-    // Cerrar al hacer clic fuera
-    window.onclick = function(event) {
-        if (event.target.className === 'w3-modal') {
-            event.target.style.display = "none";
-            const iframe = event.target.querySelector('iframe');
-            if(iframe) iframe.src = "";
+        <div class="w3-container" style="padding: 15px;">
+            <iframe id="iframeAdd" 
+                    style="width:100%; height:410px; border:none; display:block;">
+            </iframe>
+        </div>
+
+        <footer class="w3-container w3-light-grey" 
+                style="padding: 10px 20px; text-align: right; border-top: 1px solid #ddd;">
+            <button class="w3-button w3-white w3-border w3-round-large" 
+                    onclick="cierraModal('modalProducto')">Cancelar</button>
+        </footer>
+    </div>
+</div>
+
+<div id="EditProducto" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4" 
+         style="width:70%; max-width:850px; border-radius:15px; overflow:hidden; background-color: #fff;">
+        
+        <header class="w3-container w3-green" style="padding: 8px 20px; display: flex; justify-content: space-between; align-items: center;"> 
+            <h2 style="margin:0; font-size: 1.4rem; font-weight: 600;">Editar Producto</h2>
+            <span onclick="cierraModal('EditProducto')" 
+                  class="w3-button w3-display-topright w3-hover-red" 
+                  style="font-size: 1rem; cursor: pointer;">&times;</span>
+        </header>
+
+        <div class="w3-container" style="padding: 15px;">
+            <iframe id="iframeAdd" 
+                    style="width:100%; height:410px; border:none; display:block;">
+            </iframe>
+        </div>
+
+        <footer class="w3-container w3-light-grey" 
+                style="padding: 10px 20px; text-align: right; border-top: 1px solid #ddd;">
+            <button class="w3-button w3-white w3-border w3-round-large" 
+                    onclick="cierraModal('EditProducto')">Cancelar</button>
+        </footer>
+    </div>
+</div>
+
+
+    <script>
+        function abreModal(idModal, url) {
+            const modal = document.getElementById(idModal);
+            const iframe = modal.querySelector('iframe');
+            iframe.src = url;
+            modal.style.display = "block";
         }
-    }
-</script>
-    
+
+        function cierraModal(idModal) {
+            const modal = document.getElementById(idModal);
+            const iframe = modal.querySelector('iframe');
+            modal.style.display = "none";
+            iframe.src = "";
+        }
+
+        window.onclick = function(event) {
+            if (event.target.className === 'w3-modal') {
+                event.target.style.display = "none";
+                const iframe = event.target.querySelector('iframe');
+                if (iframe) iframe.src = "";
+            }
+        }
+    </script>
 </body>
 </html>
